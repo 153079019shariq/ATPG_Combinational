@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import networkx as nx
 from collections import OrderedDict
 import Gates
-from Graph_build import G
+from Graph_Controlability_Observability import G
 import Implication_Stack as IS
 
 def primary_input():
@@ -26,26 +26,26 @@ def primary_output():
 	
 	
 def Forward_Implication_fanout(node1,node2,list_outedge):
-	print "@@@@@@@@@Forward Implication Fanout"
+	#~ print "@@@@@@@@@Forward Implication Fanout"
 	global G
-	print "faulty_edge_list[:2]",faulty_edge_list[:2]
-	print "G[node1][node2]['value_faulty']",G[node1][node2]['value_faulty']
+	#~ print "faulty_edge_list[:2]",faulty_edge_list[:2]
+	#~ print "G[node1][node2]['value_faulty']",G[node1][node2]['value_faulty']
 	for i in range(len(list_outedge)):
 	
 		G.edges[list_outedge[i]]['value_non_fault']  = G[node1][node2]['value_non_fault']
 		if(faulty_edge_list[:2]!=list(list_outedge[i])):
-			print "***********"
+			#~ print "***********"
 			G.edges[list_outedge[i]]['value_faulty']  = G[node1][node2]['value_faulty']
-			
+			#~ print "G.edges[list_outedge[i]]['value_non_fault']",G.edges[list_outedge[i]]['value_non_fault']
 		new_node1		=list_outedge[i][0]
 		new_node2		=list_outedge[i][1]	
-
-		Forward_Implication_gates(new_node1,new_node2)
+		if(G.nodes[new_node2]['type']=='gate'):
+			Forward_Implication_gates(new_node1,new_node2)
 		new_node1	= node1
 		new_node2	= node2
 	
 def Forward_Implication_gates(node1,node2):
-	print "@@@@@@@@@Forward Implication Gates"
+	#~ print "@@@@@@@@@Forward Implication Gates"
 	global G
 	list_inedge =list(G.in_edges(nbunch=node2, data=False))
 	list_input_non_faulty =[]
@@ -53,7 +53,8 @@ def Forward_Implication_gates(node1,node2):
 	for i in range(len(list_inedge)):
 		list_input_non_faulty.append(G.edges[list_inedge[i]]['value_non_fault'])
 		list_input_faulty.append(G.edges[list_inedge[i]]['value_faulty'])
-		
+	#~ print "node2",node2
+	#~ print "G.nodes[node2]['gatetype']",G.nodes[node2]['gatetype']
 	
 	if(G.nodes[node2]['gatetype']=='and'):
 		output_non_faulty = Gates.AND_gate(list_input_non_faulty[0],list_input_non_faulty[1])
@@ -67,6 +68,14 @@ def Forward_Implication_gates(node1,node2):
 	elif(G.nodes[node2]['gatetype']=='nor'):
 		output_non_faulty =	Gates.NOR_gate(list_input_non_faulty[0],list_input_non_faulty[1])
 		output_faulty      =Gates.NOR_gate(list_input_faulty[0],list_input_faulty[1])
+	elif(G.nodes[node2]['gatetype']=='xor'):
+		print "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXOR"
+		print "list_input_non_faulty",list_input_non_faulty
+		output_non_faulty =	Gates.XOR_gate(list_input_non_faulty[0],list_input_non_faulty[1])
+		output_faulty      =Gates.XOR_gate(list_input_faulty[0],list_input_faulty[1])
+	elif(G.nodes[node2]['gatetype']=='xnor'):
+		output_non_faulty =	Gates.XNOR_gate(list_input_non_faulty[0],list_input_non_faulty[1])
+		output_faulty      =Gates.XNOR_gate(list_input_faulty[0],list_input_faulty[1])
 	elif(G.nodes[node2]['gatetype']=='not'):
 		output_non_faulty =	Gates.NOT_gate(list_input_non_faulty[0])
 		output_faulty	  = Gates.NOT_gate(list_input_faulty[0])
@@ -79,7 +88,7 @@ def Forward_Implication_gates(node1,node2):
 	if(faulty_edge_list[:2] !=list(list(G.out_edges(nbunch=node2, data=False))[0])): 		
 		G.edges[list(G.out_edges(nbunch=node2, data=False))[0]]['value_faulty']    =output_faulty 
 	
-	
+	#~ print "node1 node2,node2out_edge_non_fault_val",node1,node2,G.edges[list(G.out_edges(nbunch=node2, data=False))[0]]['value_non_fault']
 	#print "list_input_non_faulty,gate_output",list_inedge,list_input_non_faulty ,G.edges[list(G.out_edges(nbunch=node2, data=False))[0]]['value_non_fault'],G.edges[list(G.out_edges(nbunch=node2, data=False))[0]]['value_faulty']
 
 		
@@ -94,7 +103,9 @@ def Forward_Implication_gates(node1,node2):
 
 def Forward_Implication(node1,node2):
 	list_outedge =list(G.out_edges(nbunch=node2, data=False))						#Checking the forward implication of node2 as node1 is the Primary input
-	#print "list_outedge",list_outedge
+	#~ print "node1 node2",node1,node2
+	#~ print "list_outedge",list_outedge
+	
 	if(G.nodes[node2]['type']=='fanout'):
 		Forward_Implication_fanout(node1,node2,list_outedge)
 	elif(G.nodes[node2]['type']=='gate'):
@@ -280,17 +291,17 @@ def print_Backtrace_Graph_edges(l):
 		
 def print_Graph_edges():
 	global G	
-	output =str(faulty_edge_list) +"\n"
+	#output =str(faulty_edge_list) +"\n"
 	print "faulty_edge_list",faulty_edge_list
 	for item in G.edges(data=True):
-				if(item[0]=='G1' or item[0]=='G2' or item[0]=='G3' or item[0]=='G4' or item[0]=='G5'):
+				#if(item[0]=='G1' or item[0]=='G2' or item[0]=='G3' or item[0]=='G4' or item[0]=='G5'):
 					print item[0],item[2]['value_non_fault'] ,item[2]['value_faulty']
-					output +=str(item[0])+" " + str(item[1])+" " + str(item[2]['value_non_fault'])+" " +str(item[2]['value_faulty']) +"\n" 
+				#	output +=str(item[0])+" " + str(item[1])+" " + str(item[2]['value_non_fault'])+" " +str(item[2]['value_faulty']) +"\n" 
 	
-	output += "\n" 
-	f = open("ATPG_output.txt", 'a+')
-	f.write(output)
-	f.close()
+	#~ output += "\n" 
+	#~ f = open("ATPG_output.txt", 'a+')
+	#~ f.write(output)
+	#~ f.close()
 	
 def error_at_PO():
 		global G
@@ -322,6 +333,7 @@ def atpg_PODEM():
 		#print G.edges[PO_list[1]]['value_non_fault'],G.edges[PO_list[1]]['value_faulty']
 		if(error_at_PO()==True):
 			return True
+		print "test_not_possible_with_this_val()",test_not_possible_with_this_val()
 		if(test_not_possible_with_this_val()==True):
 			return False	
 		#while (G.edges[PO_list[0]]['value_non_fault']=='x' ):
@@ -348,12 +360,21 @@ def atpg_PODEM():
 		[edges,val]=I_Stack.peek()
 		G.edges[edges]['value_non_fault']=val
 		G.edges[edges]['value_faulty']=val
-		#print_Graph_edges()	
+		print_Graph_edges()	
 		print "**********************Forward Implication 2nd********************"
 		Forward_Implication(node1,node2)
 		if(atpg_PODEM()==True):
 			return True	
-		#print_Graph_edges()		
+		[edge_removed,val_removed]=I_Stack.pop()
+		if(I_Stack.isEmpty()==True):
+			print "NO TEST VECTOR POSSIBLE"
+		else:
+			[edges,val]=I_Stack.peek()
+			G.edges[edges]['value_non_fault']=val
+			G.edges[edges]['value_faulty']=val
+			print_Graph_edges()	
+			return False
+		#~ #print_Graph_edges()		
 			
 			#~ count =count +1
 			#~ if(count==4):
@@ -388,7 +409,7 @@ D_fronteir_list =[]
 
 I_Stack=IS.Impl_Stack()
 atpg_PODEM()
-print_Graph_edges()	
+#print_Graph_edges()	
 
 
 

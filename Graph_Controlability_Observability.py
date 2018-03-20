@@ -26,7 +26,8 @@ G.add_edge('A', '1', value_non_fault='x',value_faulty='x',fault='sa1',cc0=1,cc1=
 G.add_edge('B','fanout1', value_non_fault='x',value_faulty='x',fault='sa1',cc0=1,cc1=1,co=0)
 G.add_edge('C','fanout2', value_non_fault='x',value_faulty='x',fault='sa1',cc0=1,cc1=1,co=0)
 
-#~ 
+G.add_edge('fanout3','5', value_non_fault='x',value_faulty='x',fault='sa1',cc0=1,cc1=1,co=0)
+
 #~ plt.savefig("check_Graph.png")
 #~ plt.ion()
 #~ plt.show()

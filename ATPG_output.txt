@@ -3043,3 +3043,50 @@ G3 fanout1 0 1
 G2 G12 0 0
 G1 G8 1 1
 
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['fanout3', '5', 'sa1']
+
+['fanout3', '5', 'sa1']
+
+['fanout3', '5', 'sa1']
+
+['fanout3', '5', 'sa1']
+
+['fanout3', '5', 'sa1']
+
+['fanout3', '5', 'sa1']
+
