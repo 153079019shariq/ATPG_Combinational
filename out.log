@@ -1,0 +1,134 @@
+1
+<type 'str'>
+**********************Objective ********************
+**********************Backtrace ********************
+Before Backtrace ('G12', 'fanout3') x x
+None
+After Backtrace ('G12', 'fanout3') 1 1
+None
+Before Backtrace ('fanout2', 'G12') x x
+('G2', 'G12') x x
+None
+After Backtrace ('fanout2', 'G12') 0 0
+('G2', 'G12') x x
+None
+Before Backtrace ('G9', 'fanout2') x x
+None
+After Backtrace ('G9', 'fanout2') 0 0
+None
+Before Backtrace ('fanout1', 'G9') x x
+('G4', 'G9') x x
+None
+After Backtrace ('fanout1', 'G9') 1 1
+('G4', 'G9') x x
+None
+Before Backtrace ('G3', 'fanout1') x x
+None
+After Backtrace ('G3', 'fanout1') 1 1
+None
+**********************Forward Implication 1st********************
+node1 node2 G3 fanout1
+list_outedge [('fanout1', 'G9'), ('fanout1', 'G8')]
+@@@@@@@@@Forward Implication Fanout
+new_node1,node2 fanout1 G9
+@@@@@@@@@Forward Implication Gates
+new_node1,node2 fanout1 G8
+@@@@@@@@@Forward Implication Gates
+**************************************************************
+faulty_edge_list ['fanout3', 'G17', 'sa0']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 1 1
+G2 G12 x x
+G1 G8 x x
+fanout1 G9 1 1
+fanout1 G8 1 1
+fanout2 G15 x x
+fanout2 G12 0 0
+fanout3 G17 1 0
+fanout3 G16 x x
+G9 fanout2 x x
+G8 G16 x x
+G17 output2 x x
+G16 output1 x x
+G15 G17 x x
+G12 fanout3 1 1
+**********************Objective ********************
+node_D_fronteir G17
+**********************Backtrace ********************
+Before Backtrace ('fanout2', 'G15') x x
+('G5', 'G15') x x
+None
+After Backtrace ('fanout2', 'G15') 0 0
+('G5', 'G15') x x
+None
+Before Backtrace ('G9', 'fanout2') x x
+None
+After Backtrace ('G9', 'fanout2') 0 0
+None
+Before Backtrace ('fanout1', 'G9') 1 1
+('G4', 'G9') x x
+None
+After Backtrace ('fanout1', 'G9') 1 1
+('G4', 'G9') 1 1
+None
+**********************Forward Implication 1st********************
+node1 node2 G4 G9
+list_outedge [('G9', 'fanout2')]
+@@@@@@@@@Forward Implication Gates
+node1 node2 G9 fanout2
+list_outedge [('fanout2', 'G15'), ('fanout2', 'G12')]
+@@@@@@@@@Forward Implication Fanout
+new_node1,node2 fanout2 G15
+@@@@@@@@@Forward Implication Gates
+node1 node2 G15 G17
+list_outedge [('G17', 'output2')]
+@@@@@@@@@Forward Implication Gates
+ 
+new_node1,node2 fanout2 G12
+@@@@@@@@@Forward Implication Gates
+node1 node2 G12 fanout3
+list_outedge [('fanout3', 'G17'), ('fanout3', 'G16')]
+@@@@@@@@@Forward Implication Fanout
+new_node1,node2 fanout3 G17
+@@@@@@@@@Forward Implication Gates
+ 
+new_node1,node2 fanout3 G16
+@@@@@@@@@Forward Implication Gates
+**************************************************************
+faulty_edge_list ['fanout3', 'G17', 'sa0']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 1 1
+G2 G12 x x
+G1 G8 x x
+fanout1 G9 1 1
+fanout1 G8 1 1
+fanout2 G15 0 0
+fanout2 G12 0 0
+fanout3 G17 1 0
+fanout3 G16 1 1
+G9 fanout2 0 0
+G8 G16 x x
+G17 output2 0 1
+G16 output1 x x
+G15 G17 1 1
+G12 fanout3 1 1
+faulty_edge_list ['fanout3', 'G17', 'sa0']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 1 1
+G2 G12 x x
+G1 G8 x x
+fanout1 G9 1 1
+fanout1 G8 1 1
+fanout2 G15 0 0
+fanout2 G12 0 0
+fanout3 G17 1 0
+fanout3 G16 1 1
+G9 fanout2 0 0
+G8 G16 x x
+G17 output2 0 1
+G16 output1 x x
+G15 G17 1 1
+G12 fanout3 1 1

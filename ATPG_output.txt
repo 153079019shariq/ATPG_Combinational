@@ -1,0 +1,3045 @@
+['G1', 'G8', 'sa0']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 1 1
+G2 G12 x x
+G1 G8 1 0
+
+['G1', 'G8', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 1 1
+G2 G12 x x
+G1 G8 0 1
+
+['G3', 'fanout1', 'sa0']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 1 0
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['fanout1', 'G8', 'sa0']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 1 1
+G2 G12 x x
+G1 G8 1 1
+
+['fanout1', 'G8', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 0
+G2 G12 0 0
+G1 G8 1 1
+
+['fanout1', 'G9', 'sa0']
+G5 G15 1 1
+G4 G9 1 1
+G3 fanout1 1 1
+G2 G12 x x
+G1 G8 x x
+
+['fanout1', 'G9', 'sa1']
+G5 G15 1 1
+G4 G9 1 1
+G3 fanout1 0 0
+G2 G12 x x
+G1 G8 x x
+
+['G4', 'G9', 'sa0']
+G5 G15 1 1
+G4 G9 1 0
+G3 fanout1 1 1
+G2 G12 x x
+G1 G8 x x
+
+['G4', 'G9', 'sa1']
+G5 G15 1 1
+G4 G9 0 1
+G3 fanout1 1 1
+G2 G12 x x
+G1 G8 x x
+
+['G2', 'G12', 'sa0']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 0
+G2 G12 1 0
+G1 G8 x x
+
+['G2', 'G12', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 0
+G2 G12 0 1
+G1 G8 x x
+
+['G5', 'G15', 'sa0']
+G5 G15 1 0
+G4 G9 x x
+G3 fanout1 0 0
+G2 G12 0 0
+G1 G8 x x
+
+['G5', 'G15', 'sa1']
+G5 G15 0 1
+G4 G9 x x
+G3 fanout1 0 0
+G2 G12 0 0
+G1 G8 x x
+
+['fanout2', 'G12', 'sa0']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 0
+G2 G12 1 1
+G1 G8 x x
+
+['fanout2', 'G12', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 1 1
+G2 G12 1 1
+G1 G8 x x
+
+['fanout2', 'G15', 'sa0']
+G5 G15 1 1
+G4 G9 x x
+G3 fanout1 0 0
+G2 G12 0 0
+G1 G8 x x
+
+['fanout2', 'G15', 'sa1']
+G5 G15 1 1
+G4 G9 1 1
+G3 fanout1 1 1
+G2 G12 x x
+G1 G8 x x
+
+['fanout3', 'G16', 'sa0']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 1 1
+G2 G12 x x
+G1 G8 0 0
+
+['fanout3', 'G16', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 0
+G2 G12 1 1
+G1 G8 x x
+
+['fanout3', 'G17', 'sa0']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 1 1
+G2 G12 x x
+G1 G8 x x
+
+['fanout3', 'G17', 'sa1']
+G5 G15 0 0
+G4 G9 x x
+G3 fanout1 0 0
+G2 G12 1 1
+G1 G8 x x
+
+['fanout1', 'G9', 'sa1']
+G5 G15 1 1
+G4 G9 1 1
+G3 fanout1 0 0
+G2 G12 x x
+G1 G8 x x
+
+['fanout1', 'G9', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 0
+G2 G12 x x
+G1 G8 x x
+
+['fanout1', 'G9', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 0
+G2 G12 x x
+G1 G8 x x
+
+['fanout1', 'G9', 'sa1']
+G5 G15 1 1
+G4 G9 1 1
+G3 fanout1 0 0
+G2 G12 x x
+G1 G8 x x
+
+['fanout1', 'G9', 'sa1']
+G5 G15 1 1
+G4 G9 1 1
+G3 fanout1 0 0
+G2 G12 x x
+G1 G8 x x
+
+['fanout1', 'G9', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 0
+G2 G12 x x
+G1 G8 x x
+
+['fanout1', 'G9', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 0
+G2 G12 x x
+G1 G8 x x
+
+['fanout1', 'G9', 'sa1']
+G5 G15 1 1
+G4 G9 1 1
+G3 fanout1 0 0
+G2 G12 x x
+G1 G8 x x
+
+['fanout1', 'G9', 'sa1']
+G5 G15 1 1
+G4 G9 1 1
+G3 fanout1 0 0
+G2 G12 x x
+G1 G8 x x
+
+['fanout1', 'G9', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 0
+G2 G12 x x
+G1 G8 x x
+
+['fanout1', 'G9', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 0
+G2 G12 x x
+G1 G8 x x
+
+['fanout1', 'G9', 'sa1']
+G5 G15 1 1
+G4 G9 1 1
+G3 fanout1 0 0
+G2 G12 x x
+G1 G8 x x
+
+['fanout1', 'G9', 'sa1']
+G5 G15 1 1
+G4 G9 1 1
+G3 fanout1 0 0
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa0']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 1 0
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa0']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 1 0
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa0']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 1 0
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa0']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 1 0
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa0']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 1 0
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 x x
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 x x
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 x x
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
+['G3', 'fanout1', 'sa1']
+G5 G15 x x
+G4 G9 1 1
+G3 fanout1 0 1
+G2 G12 0 0
+G1 G8 1 1
+
