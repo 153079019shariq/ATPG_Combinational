@@ -1,87 +1,104 @@
 
 import copy
-def AND_gate(a,b):
-	return {
-			'00':'0',
-			'01':'0',
-			'0x':'0',
-			'10':'0',
-			'11':'1',
-			'1x':'x',
-			'x0':'0',
-			'x1':'x',
-			'xx':'x'
-			}[a+b]
-			
+
+def AND_gate(list_input):
+	flag =0
 	
-def OR_gate(a,b):
-	return {
-			'00':'0',
-			'01':'1',
-			'0x':'x',
-			'10':'1',
-			'11':'1',
-			'1x':'1',
-			'x0':'x',
-			'x1':'1',
-			'xx':'x'
-			}[a+b]		
-			
+	for input1 in list_input:
+			if(input1=='0'):			#Controlling_value
+				return '0'					
+			else:
+				if(input1=='x'):
+					flag =1
+					
+	if(flag==1):
+		return 'x'
+	else:
+		return '1' 						#All input is '1'
+		
+		
+def OR_gate(list_input):
+	flag =0
+	
+	for input1 in list_input:
+			if(input1=='1'):
+				return '1'
+			else:
+				if(input1=='x'):
+					flag =1
+					
+	if(flag==1):
+		return 'x'
+	else:
+		return '0' 
 
-def NAND_gate(a,b):
-	return {
-			'00':'1',
-			'01':'1',
-			'0x':'1',
-			'10':'1',
-			'11':'0',
-			'1x':'x',
-			'x0':'1',
-			'x1':'x',
-			'xx':'x'
-			}[a+b]
-			
-def NOR_gate(a,b):
-	return {
-			'00':'1',
-			'01':'0',
-			'0x':'x',
-			'10':'0',
-			'11':'0',
-			'1x':'0',
-			'x0':'x',
-			'x1':'0',
-			'xx':'x'
-			}[a+b]
-			
-			
-def XOR_gate(a,b):
-	return {
-			'00':'0',
-			'01':'1',
-			'0x':'x',
-			'10':'1',
-			'11':'0',
-			'1x':'x',
-			'x0':'x',
-			'x1':'x',
-			'xx':'x'
-			}[a+b]	
-				
 
-def XNOR_gate(a,b):
-	return {
-			'00':'1',
-			'01':'0',
-			'0x':'x',
-			'10':'0',
-			'11':'1',
-			'1x':'x',
-			'x0':'x',
-			'x1':'x',
-			'xx':'x'
-			}[a+b]
-			
+def NAND_gate(list_input):
+	flag =0
+	
+	for input1 in list_input:
+			if(input1=='0'):
+				return '1'
+			else:
+				if(input1=='x'):
+					flag =1
+					
+	if(flag==1):
+		return 'x'
+	else:
+		return '0' 
+		
+		
+def NOR_gate(list_input):
+	flag =0
+	
+	for input1 in list_input:
+			if(input1=='1'):
+				return '0'
+			else:
+				if(input1=='x'):
+					flag =1
+					
+	if(flag==1):
+		return 'x'
+	else:
+		return '1' 
+		
+		
+
+def XOR_gate(list_input):
+	flag =0
+	count =0
+	for input1 in list_input:
+			if(input1=='x'):
+				return 'x'
+			else:
+				if(input1=='1'):
+					count =count +1
+					
+	if(count % 2 !=0):					#Odd no of 1
+		return '1'
+	else:
+		return '0' 
+		
+
+def XNOR_gate(list_input):
+	flag =0
+	count =0
+	for input1 in list_input:
+			if(input1=='x'):
+				return 'x'
+			else:
+				if(input1=='1'):
+					count =count +1
+					
+	if(count % 2 ==0):			#Even no of 1
+		return '1'
+	else:
+		return '0' 
+
+
+
 			
 def NOT_gate(a):
 	return {
@@ -169,7 +186,7 @@ def NOT_Obser(edgeCO):
 list_predecessorCC0	=[1,2]	
 list_predecessorCC1 =[3,4]
 
-print XOR_Control([1,1],[1,1])
+
 #print AND_Control(list_predecessorCC0,list_predecessorCC1)
 #print AND_NAND_Obser([1,2,3],1)
 #print OR_NOR_Obser([1,10,20],5)

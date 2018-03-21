@@ -1,5 +1,8 @@
 import networkx as nx 
+import operator
 G = nx.DiGraph()
+
+
 G.add_node('A',type='input')
 G.add_node('B',type='input')
 #G.add_node('C',type='input')
@@ -33,8 +36,17 @@ G.add_edges_from([('A','1'),('B','fanout1'),('fanout1','1'),('1','fanout3'),('fa
 G.add_edge('A', '1', value_non_fault='x',value_faulty='x',fault='',cc0=1,cc1=1,co=0)
 G.add_edge('B','fanout1', value_non_fault='x',value_faulty='x',fault='',cc0=1,cc1=1,co=0)
 
+
+
+
+
 #Fault
 G.add_edge('5','fanout5', value_non_fault='x',value_faulty='x',fault='sa1',cc0=1,cc1=1,co=0)
+
+
+
+#bfs = sorted(x.items(), key=operator.itemgetter(1))
+print bfs
 
 #~ plt.savefig("check_Graph.png")
 #~ plt.ion()

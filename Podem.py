@@ -1,9 +1,6 @@
-
-import matplotlib.pyplot as plt
-import networkx as nx
-from collections import OrderedDict
 import Gates
-from Graph_Controlability_Observability import G
+import operator
+from Graph_build import G,bfs
 import Implication_Stack as IS
 
 def primary_input():
@@ -26,7 +23,7 @@ def primary_output():
 	
 	
 def Forward_Implication_fanout(node1,node2,list_outedge):
-	#~ print "@@@@@@@@@Forward Implication Fanout"
+	print "@@@@@@@@@Forward Implication Fanout"
 	global G
 	#~ print "faulty_edge_list[:2]",faulty_edge_list[:2]
 	#~ print "G[node1][node2]['value_faulty']",G[node1][node2]['value_faulty']
@@ -36,16 +33,17 @@ def Forward_Implication_fanout(node1,node2,list_outedge):
 		if(faulty_edge_list[:2]!=list(list_outedge[i])):
 			#~ print "***********"
 			G.edges[list_outedge[i]]['value_faulty']  = G[node1][node2]['value_faulty']
-			#print "G.edges[list_outedge[i]]['value_non_fault']",G.edges[list_outedge[i]]['value_non_fault']
 		new_node1		=list_outedge[i][0]
-		new_node2		=list_outedge[i][1]	
-		if(G.nodes[new_node2]['type']=='gate'):
-			Forward_Implication_gates(new_node1,new_node2)
+		new_node2		=list_outedge[i][1]
+		print "new_node1 new_node2",new_node1,new_node2	
+		if(G.nodes[new_node2]['type']=='gate' or G.nodes[new_node2]['type']=='fanout'):
+			Forward_Implication(new_node1,new_node2)
+		
 		new_node1	= node1
 		new_node2	= node2
 	
 def Forward_Implication_gates(node1,node2):
-	#~ print "@@@@@@@@@Forward Implication Gates"
+	print "@@@@@@@@@Forward Implication Gates"
 	global G
 	list_inedge =list(G.in_edges(nbunch=node2, data=False))
 	list_input_non_faulty =[]
@@ -53,29 +51,25 @@ def Forward_Implication_gates(node1,node2):
 	for i in range(len(list_inedge)):
 		list_input_non_faulty.append(G.edges[list_inedge[i]]['value_non_fault'])
 		list_input_faulty.append(G.edges[list_inedge[i]]['value_faulty'])
-	#~ print "node2",node2
-	#~ print "G.nodes[node2]['gatetype']",G.nodes[node2]['gatetype']
 	
 	if(G.nodes[node2]['gatetype']=='and'):
-		output_non_faulty = Gates.AND_gate(list_input_non_faulty[0],list_input_non_faulty[1])
-		output_faulty	  = Gates.AND_gate(list_input_faulty[0],list_input_faulty[1])
+		output_non_faulty = Gates.AND_gate(list_input_non_faulty)
+		output_faulty	  = Gates.AND_gate(list_input_faulty)
 	elif(G.nodes[node2]['gatetype']=='or'):
-		output_non_faulty =	Gates.OR_gate(list_input_non_faulty[0],list_input_non_faulty[1])
-		output_faulty	  =	Gates.OR_gate(list_input_faulty[0],list_input_faulty[1])
+		output_non_faulty =	Gates.OR_gate(list_input_non_faulty)
+		output_faulty	  =	Gates.OR_gate(list_input_faulty)
 	elif(G.nodes[node2]['gatetype']=='nand'):
-		output_non_faulty =	Gates.NAND_gate(list_input_non_faulty[0],list_input_non_faulty[1])
-		output_faulty	  = Gates.NAND_gate(list_input_faulty[0],list_input_faulty[1])
+		output_non_faulty =	Gates.NAND_gate(list_input_non_faulty)
+		output_faulty	  = Gates.NAND_gate(list_input_faulty)
 	elif(G.nodes[node2]['gatetype']=='nor'):
-		output_non_faulty =	Gates.NOR_gate(list_input_non_faulty[0],list_input_non_faulty[1])
-		output_faulty      =Gates.NOR_gate(list_input_faulty[0],list_input_faulty[1])
+		output_non_faulty =	Gates.NOR_gate(list_input_non_faulty)
+		output_faulty      =Gates.NOR_gate(list_input_faulty)
 	elif(G.nodes[node2]['gatetype']=='xor'):
-		print "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXOR"
-		print "list_input_non_faulty",list_input_non_faulty
-		output_non_faulty =	Gates.XOR_gate(list_input_non_faulty[0],list_input_non_faulty[1])
-		output_faulty      =Gates.XOR_gate(list_input_faulty[0],list_input_faulty[1])
+		output_non_faulty =	Gates.XOR_gate(list_input_non_faulty)
+		output_faulty      =Gates.XOR_gate(list_input_faulty)
 	elif(G.nodes[node2]['gatetype']=='xnor'):
-		output_non_faulty =	Gates.XNOR_gate(list_input_non_faulty[0],list_input_non_faulty[1])
-		output_faulty      =Gates.XNOR_gate(list_input_faulty[0],list_input_faulty[1])
+		output_non_faulty =	Gates.XNOR_gate(list_input_non_faulty)
+		output_faulty      =Gates.XNOR_gate(list_input_faulty)
 	elif(G.nodes[node2]['gatetype']=='not'):
 		output_non_faulty =	Gates.NOT_gate(list_input_non_faulty[0])
 		output_faulty	  = Gates.NOT_gate(list_input_faulty[0])
@@ -96,18 +90,16 @@ def Forward_Implication_gates(node1,node2):
 	if(G.nodes[node2]['type']=='output'):		#Check whether Fault Propagated to Primary output_non_faulty
 				print "Fault at primary output_non_faulty"
 	else:	
-				Forward_Implication(node1,node2)																	   
+		Forward_Implication(node1,node2)																	   
 
 
 def Forward_Implication(node1,node2):
-	list_outedge =list(G.out_edges(nbunch=node2, data=False))						#Checking the forward implication of node2 as node1 is the Primary input
-	#print "node1 node2",node1,node2
-	#print "list_outedge",list_outedge
+	list_outedge =list(G.out_edges(nbunch=node2, data=False))				#Checking the forward implication of node2 as node1 is the Primary input
+
 	
 	if(G.nodes[node2]['type']=='fanout'):
 		Forward_Implication_fanout(node1,node2,list_outedge)
 	elif(G.nodes[node2]['type']=='gate'):
-		#print "node1 node2",node1,node2
 		Forward_Implication_gates(node1,node2)
 		
 		 
@@ -135,8 +127,9 @@ def Objective():
 											#Enable the propagation ofthe fault by assigning them non controling values
 			
 		D_fronteir_list= D_fronteir()	
-		print "D_fronteir_list",sort_D_fronteir(D_fronteir_list)
-		gate_ip_edge = undefined_ip(sort_D_fronteir(D_fronteir_list)[0])
+		D_fronteir_list	=	sort_D_fronteir(D_fronteir_list)
+		print "D_fronteir_list",D_fronteir_list
+		gate_ip_edge = undefined_ip(D_fronteir_list[0][0])
 		print "gate_ip_edge",gate_ip_edge
 		
 		
@@ -147,11 +140,21 @@ def Objective():
 
 
 
-def sort_D_fronteir(D_fronteir_list):
-		if(D_fronteir_list.sort(reverse=True)==None):
-			return D_fronteir_list
-		else:
-			return D_fronteir_list.sort(reverse=True)
+def sort_D_fronteir(D_fronteir_list):			#Found the bfs(to levelise the circuit) and choose the D_fronteir nearest to the output
+		print "sort_D_fronteir"
+		D_fronteir_level ={}
+		for i in D_fronteir_list:
+			for j in bfs.keys():
+				if(i==j):
+					D_fronteir_level[i]=bfs[j]
+		print "D_fronteir_level",D_fronteir_level
+		D_fronteir_level_sorted = sorted(D_fronteir_level.items(), key=operator.itemgetter(1),reverse=True)
+		print "D_fronteir_level_sorted",D_fronteir_level_sorted
+		return 	D_fronteir_level_sorted
+		
+		
+		
+
 
 def D_fronteir():
 	
@@ -211,7 +214,7 @@ def undefined_ip(node_D_fronteir):
 def Backtrace(node1,node2):
 		global G
 		backtrack=0
-		while(G.nodes[node1]['type']=='gate' or  G.nodes[node1]['type']=='fanout'):
+		while(G.nodes[node1]['type']=='gate' or  G.nodes[node1]['type']=='fanout'):			# Checking whether PI is reached then terminate
 			l= list (G.in_edges(nbunch=node1, data=False))
 			print "node1",node1
 			print "Before Backtrace",print_Backtrace_Graph_edges(l)
@@ -328,7 +331,6 @@ def atpg_PODEM():
 		global G
 		global I_Stack
 		count =0
-		#print G.edges[PO_list[1]]['value_non_fault'],G.edges[PO_list[1]]['value_faulty']
 		if(error_at_PO()==True):
 			return True
 		print "test_not_possible_with_this_val()",test_not_possible_with_this_val()
@@ -372,11 +374,6 @@ def atpg_PODEM():
 			G.edges[edges]['value_faulty']=val
 			print_Graph_edges()	
 			return False
-		#~ #print_Graph_edges()		
-			
-			#~ count =count +1
-			#~ if(count==4):
-				#~ break
 		
 	
 
@@ -411,6 +408,3 @@ atpg_PODEM()
 
 
 
-plt.savefig("check_Graph.png")
-plt.ion()
-plt.show()
