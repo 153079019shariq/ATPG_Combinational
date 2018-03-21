@@ -1,6 +1,6 @@
 import Gates
 import operator
-from Graph_build import G,bfs
+from Graph_Abramovici import G,bfs
 import Implication_Stack as IS
 
 def primary_input():
@@ -23,7 +23,7 @@ def primary_output():
 	
 	
 def Forward_Implication_fanout(node1,node2,list_outedge):
-	print "@@@@@@@@@Forward Implication Fanout"
+	#print "@@@@@@@@@Forward Implication Fanout"
 	global G
 	#~ print "faulty_edge_list[:2]",faulty_edge_list[:2]
 	#~ print "G[node1][node2]['value_faulty']",G[node1][node2]['value_faulty']
@@ -43,7 +43,7 @@ def Forward_Implication_fanout(node1,node2,list_outedge):
 		new_node2	= node2
 	
 def Forward_Implication_gates(node1,node2):
-	print "@@@@@@@@@Forward Implication Gates"
+	#print "@@@@@@@@@Forward Implication Gates"
 	global G
 	list_inedge =list(G.in_edges(nbunch=node2, data=False))
 	list_input_non_faulty =[]
@@ -87,9 +87,7 @@ def Forward_Implication_gates(node1,node2):
 	node1 =list(G.out_edges(nbunch=node2, data=False))[0][0]
 	node2 =list(G.out_edges(nbunch=node2, data=False))[0][1]
 	#print "node1 node2",node1,node2
-	if(G.nodes[node2]['type']=='output'):		#Check whether Fault Propagated to Primary output_non_faulty
-				print "Fault at primary output_non_faulty"
-	else:	
+	if(G.nodes[node2]['type']!='output'):		#Check whether Fault Propagated to Primary output_non_faulty
 		Forward_Implication(node1,node2)																	   
 
 
@@ -130,7 +128,7 @@ def Objective():
 		D_fronteir_list	=	sort_D_fronteir(D_fronteir_list)
 		print "D_fronteir_list",D_fronteir_list
 		gate_ip_edge = undefined_ip(D_fronteir_list[0][0])
-		print "gate_ip_edge",gate_ip_edge
+		
 		
 		
 		
@@ -147,9 +145,8 @@ def sort_D_fronteir(D_fronteir_list):			#Found the bfs(to levelise the circuit) 
 			for j in bfs.keys():
 				if(i==j):
 					D_fronteir_level[i]=bfs[j]
-		print "D_fronteir_level",D_fronteir_level
+		
 		D_fronteir_level_sorted = sorted(D_fronteir_level.items(), key=operator.itemgetter(1),reverse=True)
-		print "D_fronteir_level_sorted",D_fronteir_level_sorted
 		return 	D_fronteir_level_sorted
 		
 		
@@ -295,7 +292,7 @@ def print_Graph_edges():
 	#output =str(faulty_edge_list) +"\n"
 	print "faulty_edge_list",faulty_edge_list
 	for item in G.edges(data=True):
-				#if(item[0]=='G1' or item[0]=='G2' or item[0]=='G3' or item[0]=='G4' or item[0]=='G5'):
+				#if(item[0]=='A' or item[0]=='B' or item[0]=='C' or item[0]=='D' or item[0]=='E'or item[0]=='F'):
 					print item[0],item[2]['value_non_fault'] ,item[2]['value_faulty']
 				#	output +=str(item[0])+" " + str(item[1])+" " + str(item[2]['value_non_fault'])+" " +str(item[2]['value_faulty']) +"\n" 
 	
@@ -351,7 +348,7 @@ def atpg_PODEM():
 		print "**********************Forward Implication 1st********************"
 		Forward_Implication(node1,node2)
 		print "**************************************************************"
-		print_Graph_edges()	
+		#print_Graph_edges()	
 		print "One turn over try another"
 		if(atpg_PODEM()==True):
 			return True
@@ -360,7 +357,7 @@ def atpg_PODEM():
 		[edges,val]=I_Stack.peek()
 		G.edges[edges]['value_non_fault']=val
 		G.edges[edges]['value_faulty']=val
-		print_Graph_edges()	
+		#print_Graph_edges()	
 		print "**********************Forward Implication 2nd********************"
 		Forward_Implication(node1,node2)
 		if(atpg_PODEM()==True):
@@ -404,7 +401,7 @@ D_fronteir_list =[]
 
 I_Stack=IS.Impl_Stack()
 atpg_PODEM()
-#print_Graph_edges()	
+print_Graph_edges()	
 
 
 

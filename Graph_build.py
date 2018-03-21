@@ -21,13 +21,13 @@ G.add_edge('G3','fanout1', value_non_fault='x',value_faulty='x',fault='sa1')
 
 
 #Dummy node for bfs
-
+G.add_node('PI',type='check')
 G.add_edge('PI','G1', value_non_fault='x',value_faulty='x',fault='')
 G.add_edge('PI','G2', value_non_fault='x',value_faulty='x',fault='')
 G.add_edge('PI','G3', value_non_fault='x',value_faulty='x',fault='')
 G.add_edge('PI','G4', value_non_fault='x',value_faulty='x',fault='')
 G.add_edge('PI','G5', value_non_fault='x',value_faulty='x',fault='')
-G.add_node('PI',type='check')
+
 
 
 bfs=nx.single_source_shortest_path_length(G,'PI')
