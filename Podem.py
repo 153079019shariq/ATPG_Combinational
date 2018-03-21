@@ -36,7 +36,7 @@ def Forward_Implication_fanout(node1,node2,list_outedge):
 		if(faulty_edge_list[:2]!=list(list_outedge[i])):
 			#~ print "***********"
 			G.edges[list_outedge[i]]['value_faulty']  = G[node1][node2]['value_faulty']
-			#~ print "G.edges[list_outedge[i]]['value_non_fault']",G.edges[list_outedge[i]]['value_non_fault']
+			#print "G.edges[list_outedge[i]]['value_non_fault']",G.edges[list_outedge[i]]['value_non_fault']
 		new_node1		=list_outedge[i][0]
 		new_node2		=list_outedge[i][1]	
 		if(G.nodes[new_node2]['type']=='gate'):
@@ -88,13 +88,11 @@ def Forward_Implication_gates(node1,node2):
 	if(faulty_edge_list[:2] !=list(list(G.out_edges(nbunch=node2, data=False))[0])): 		
 		G.edges[list(G.out_edges(nbunch=node2, data=False))[0]]['value_faulty']    =output_faulty 
 	
-	#~ print "node1 node2,node2out_edge_non_fault_val",node1,node2,G.edges[list(G.out_edges(nbunch=node2, data=False))[0]]['value_non_fault']
-	#print "list_input_non_faulty,gate_output",list_inedge,list_input_non_faulty ,G.edges[list(G.out_edges(nbunch=node2, data=False))[0]]['value_non_fault'],G.edges[list(G.out_edges(nbunch=node2, data=False))[0]]['value_faulty']
-
+	
 		
 	node1 =list(G.out_edges(nbunch=node2, data=False))[0][0]
 	node2 =list(G.out_edges(nbunch=node2, data=False))[0][1]
-			#print "node1 node2",node1,node2
+	#print "node1 node2",node1,node2
 	if(G.nodes[node2]['type']=='output'):		#Check whether Fault Propagated to Primary output_non_faulty
 				print "Fault at primary output_non_faulty"
 	else:	
@@ -103,8 +101,8 @@ def Forward_Implication_gates(node1,node2):
 
 def Forward_Implication(node1,node2):
 	list_outedge =list(G.out_edges(nbunch=node2, data=False))						#Checking the forward implication of node2 as node1 is the Primary input
-	#~ print "node1 node2",node1,node2
-	#~ print "list_outedge",list_outedge
+	#print "node1 node2",node1,node2
+	#print "list_outedge",list_outedge
 	
 	if(G.nodes[node2]['type']=='fanout'):
 		Forward_Implication_fanout(node1,node2,list_outedge)

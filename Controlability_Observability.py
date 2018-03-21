@@ -86,7 +86,7 @@ def observabiltiy(node):
 				
 
 					
-lis =['A','B','C','fanout1','fanout2','1','2','3','4','fanout3','5','6','Y','Z']	
+lis =['A','B','fanout1','1','fanout2','fanout3','2','fanout4','3','4','fanout6','5','fanout5','7','9','6','8','X','Y','Z']	
 #1st controlabiliy should be calculated then observability.The controlability is calculated from PI to PO.And the observability is calculated from PO to PI.
 for node in lis:	
 		controlabilty(node)
