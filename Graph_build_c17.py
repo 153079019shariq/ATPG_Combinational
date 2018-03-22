@@ -7,7 +7,7 @@ wire_list =[]
 nodes_list =[]
 edges_list =[]
 dummy_node =[]
-fanout1_list =[]
+
 output_of_gates =[]
 input1_of_gates =[]
 input2_of_gates =[]
@@ -24,10 +24,10 @@ with open ('c17.v','r') as f:
 			input_list=list1[1].split(',')
 		if(list1[0]=='output'):
 			output_list=list1[1].split(',')
-		if(list1[0]=='assign'):
-			edges_list.append((list1[3],list1[1]))
-			if(list1[1] in wire_list):
-				fanout1_list.append(list1[1])
+		#~ if(list1[0]=='assign'):
+			#~ edges_list.append((list1[3],list1[1]))
+			#~ if(list1[1] in wire_list):
+				#~ fanout1_dic.append(list1[1])
 		
 		if(list1[0]=='nand' or list1[0]=='nor' or list1[0]=='or' or list1[0]=='and' or list1[0]=='not'):
 			list2 = list1[2].split(',')
@@ -38,9 +38,61 @@ with open ('c17.v','r') as f:
 		
 		
 
+#fanout_list------------------------------
+fanout1_dic ={}
+output_dic	={}
+fanout2_list =[]
+for i in input1_of_gates:
+	if(i in input2_of_gates):
+		fanout2_list.append(i)
+print "fanout2_list",fanout2_list
+
+for i in range(len(fanout2_list)):
+	check	= "fanout" + str(i+1)
+	fanout1_dic[fanout2_list[i]]=check
+
+#Output_list-------------------------------------
+for i in range(len(output_list)):
+	check2	= "output" + str(i+1)
+	output_dic[output_list[i]]=check2
+print "output_dic",output_dic
+
+
 print "dic_gate_types",dic_gate_types
 print type(dic_gate_types[output_of_gates[0]])
-nodes_list =	input_list	+	output_of_gates + fanout1_list +	output_list + dummy_node
+nodes_list =	input_list	+	output_of_gates + output_dic.values() +fanout1_dic.values() + dummy_node
+
+print "input1_of_gates",input1_of_gates
+print "input2_of_gates",input2_of_gates
+
+
+#---Insert the fanout node in input1_of_g
+#lis[lis.index('one')] = 'replaced!'
+for i in input1_of_gates:
+	if(i in fanout1_dic.keys()):
+		print i
+		input1_of_gates[input1_of_gates.index(i)]=fanout1_dic[i]
+		
+for i in input2_of_gates:
+	if(i in fanout1_dic.keys()):
+		print i
+		input2_of_gates[input2_of_gates.index(i)]=fanout1_dic[i]
+		
+		
+
+
+print "input1_of_gates",input1_of_gates
+print "input2_of_gates",input2_of_gates
+
+
+#------------------------------------------
+for key, value in fanout1_dic.iteritems():
+	 edges_list.append((key,value))
+	 print "(fanout1_dic.keys(),fanout1_dic.values())",type((key,value))
+
+for key, value in output_dic.iteritems():
+	 edges_list.append((key,value))
+	 print "output",(key,value)
 
 
 for i in range(len(output_of_gates)):
@@ -50,21 +102,22 @@ for i in range(len(output_of_gates)):
 	edges_list.append((input1_of_gates[i],output_of_gates[i]))
 
 
+
 for i in range(len(input_list)):
 	edges_list.append(('PI',input_list[i]))
 		
 
 print "input_list",input_list
-print "fanout1_list",fanout1_list
+print "fanout1_dic",fanout1_dic
 print "output_of_gates",output_of_gates
 print "output_list",output_list
 
-print "wire_list",wire_list
+#print "wire_list",wire_list
 
 print "**************************************"
 
-print "nodes_list",nodes_list
-print "edges_list",edges_list 
+#print "nodes_list",nodes_list
+#print "edges_list",edges_list 
 
 #*****************************Constructing a graph*************************************************************************
 output = """import networkx as nx 
@@ -82,11 +135,11 @@ for  i in nodes_list:
 		add_node  += "G.add_node" +"(" + "\'"+ i + "\'"+ "," + "type" + "=" + "\'"+ "check" + "\'" + ")" + "\n"
 	if(i in input_list):
 		add_node  += "G.add_node" +"(" + "\'"+ i + "\'"+ "," + "type" + "=" + "\'"+ "input" + "\'" + ")" + "\n"
-	if(i in fanout1_list):
+	if(i in fanout1_dic.values()):
 		add_node  += "G.add_node" +"(" + "\'"+ i + "\'"+ "," + "type" + "=" + "\'" + "fanout" + "\'" + ")" + "\n"
 	if(i in output_of_gates):
 		add_node  += "G.add_node" +"(" + "\'"+ i + "\'"+ "," + "type" + "=" + "\'" + "gate" + "\'" + ","+"gatetype" + "=" + "\'" + dic_gate_types[i] + "\'" + ")" + "\n"
-	if(i in output_list):
+	if(i in output_dic.values()):
 		add_node  += "G.add_node" +"(" + "\'"+ i + "\'"+ "," + "type" + "=" + "\'" + "output" + "\'" + ")" + "\n"
 	
 print add_node 
