@@ -369,7 +369,7 @@ def atpg_PODEM():
 			[edges,val]=I_Stack.peek()
 			G.edges[edges]['value_non_fault']=val
 			G.edges[edges]['value_faulty']=val
-			print_Graph_edges()	
+			#print_Graph_edges()	
 			return False
 		
 	
