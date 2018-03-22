@@ -9,7 +9,8 @@ edges_list =[]
 dummy_node =[]
 
 output_of_gates =[]
-input1_of_gates =[]
+input_of_gates =[]
+input_of_gates =[]
 input2_of_gates =[]
 
 dic_gate_types ={}
@@ -24,17 +25,13 @@ with open ('c17.v','r') as f:
 			input_list=list1[1].split(',')
 		if(list1[0]=='output'):
 			output_list=list1[1].split(',')
-		#~ if(list1[0]=='assign'):
-			#~ edges_list.append((list1[3],list1[1]))
-			#~ if(list1[1] in wire_list):
-				#~ fanout1_dic.append(list1[1])
-		
 		if(list1[0]=='nand' or list1[0]=='nor' or list1[0]=='or' or list1[0]=='and' or list1[0]=='not'):
-			list2 = list1[2].split(',')
-			output_of_gates.append(list2[0].lstrip('('))
-			input1_of_gates.append(list2[1])
-			input2_of_gates.append(list2[2].rstrip(')'))
-			dic_gate_types[list2[0].lstrip('(')]=list1[0]
+			list2 = list1[3].split(',')
+			output_of_gates.append(list2[0])
+			input_of_gates.append(list2[1:])
+			dic_gate_types[list2[0]]=list1[0]
+
+			
 		
 		
 
@@ -42,14 +39,19 @@ with open ('c17.v','r') as f:
 fanout1_dic ={}
 output_dic	={}
 fanout2_list =[]
-for i in input1_of_gates:
-	if(i in input2_of_gates):
+temp_list=[]
+print "input_of_gates",input_of_gates
+temp_list =[j for i in input_of_gates for j in i]
+
+for i in temp_list:
+	if (temp_list.count(i)>1 and (i not in fanout2_list)):
 		fanout2_list.append(i)
 print "fanout2_list",fanout2_list
 
 for i in range(len(fanout2_list)):
 	check	= "fanout" + str(i+1)
 	fanout1_dic[fanout2_list[i]]=check
+print "fanout1_dic",fanout1_dic
 
 #Output_list-------------------------------------
 for i in range(len(output_list)):
@@ -62,27 +64,20 @@ print "dic_gate_types",dic_gate_types
 print type(dic_gate_types[output_of_gates[0]])
 nodes_list =	input_list	+	output_of_gates + output_dic.values() +fanout1_dic.values() + dummy_node
 
-print "input1_of_gates",input1_of_gates
-print "input2_of_gates",input2_of_gates
+print "input_of_gates",input_of_gates
+
 
 
 #---Insert the fanout node in input1_of_g
 #lis[lis.index('one')] = 'replaced!'
-for i in input1_of_gates:
-	if(i in fanout1_dic.keys()):
-		print i
-		input1_of_gates[input1_of_gates.index(i)]=fanout1_dic[i]
-		
-for i in input2_of_gates:
-	if(i in fanout1_dic.keys()):
-		print i
-		input2_of_gates[input2_of_gates.index(i)]=fanout1_dic[i]
-		
-		
+for i in input_of_gates:
+	for j in i:
+		if(j in fanout1_dic.keys()):
+			print j
+			input_of_gates[input_of_gates.index(i)][i.index(j)]=fanout1_dic[j]
 
+print "input_of_gates",input_of_gates
 
-print "input1_of_gates",input1_of_gates
-print "input2_of_gates",input2_of_gates
 
 
 #------------------------------------------
@@ -96,11 +91,11 @@ for key, value in output_dic.iteritems():
 
 
 for i in range(len(output_of_gates)):
-	edges_list.append((input2_of_gates[i],output_of_gates[i]))
+	for j in range(len(input_of_gates[i])):
+		print "input_of_gates[i][j]",input_of_gates[i][j]
+		edges_list.append((input_of_gates[i][j],output_of_gates[i]))
 
-for i in range(len(output_of_gates)):
-	edges_list.append((input1_of_gates[i],output_of_gates[i]))
-
+print "edges_list",edges_list
 
 
 for i in range(len(input_list)):
