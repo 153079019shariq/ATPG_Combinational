@@ -1,19 +1,19 @@
 import sys
 faulty_edge_list =[sys.argv[1],sys.argv[2],sys.argv[3]]
-#faulty_edge_list =['fanout3','G17','sa0']
+#faulty_edge_list =['G3','fanout1','sa0']
 input_list =[]
 output_list=[]
 wire_list =[]
 nodes_list =[]
 edges_list =[]
-
+dummy_node =[]
 fanout1_list =[]
 output_of_gates =[]
 input1_of_gates =[]
 input2_of_gates =[]
 
 dic_gate_types ={}
-
+dummy_node =['PI']
 with open ('c17.v','r') as f:
 	lines = f.read().splitlines()
 	for i in lines:
@@ -40,7 +40,7 @@ with open ('c17.v','r') as f:
 
 print "dic_gate_types",dic_gate_types
 print type(dic_gate_types[output_of_gates[0]])
-nodes_list =	input_list	+	output_of_gates + fanout1_list +	output_list 
+nodes_list =	input_list	+	output_of_gates + fanout1_list +	output_list + dummy_node
 
 
 for i in range(len(output_of_gates)):
@@ -49,6 +49,9 @@ for i in range(len(output_of_gates)):
 for i in range(len(output_of_gates)):
 	edges_list.append((input1_of_gates[i],output_of_gates[i]))
 
+
+for i in range(len(input_list)):
+	edges_list.append(('PI',input_list[i]))
 		
 
 print "input_list",input_list
@@ -75,6 +78,8 @@ add_faulty_edges	="G.add_edge" +"(" + "\'"+ faulty_edge_list[0] + "\'" + "," + "
 print "add_f",add_faulty_edges
 
 for  i in nodes_list:
+	if(i in 'PI' ):
+		add_node  += "G.add_node" +"(" + "\'"+ i + "\'"+ "," + "type" + "=" + "\'"+ "check" + "\'" + ")" + "\n"
 	if(i in input_list):
 		add_node  += "G.add_node" +"(" + "\'"+ i + "\'"+ "," + "type" + "=" + "\'"+ "input" + "\'" + ")" + "\n"
 	if(i in fanout1_list):
@@ -86,6 +91,9 @@ for  i in nodes_list:
 	
 print add_node 
 
+
+
+
 for i in range(len(edges_list)):
 	if(i==len(edges_list)-1):
 		add_edges_from += str(edges_list[i])
@@ -96,7 +104,11 @@ for i in range(len(edges_list)):
 add_edges_from	+= "], value_non_fault='x',value_faulty='x', fault='')" 
 #print add_edges_from
 
-output += add_node + add_edges_from  + "\n" + add_faulty_edges
+bfs ="bfs=nx.single_source_shortest_path_length(G,'PI')"
+
+
+output += add_node + add_edges_from  + "\n" + add_faulty_edges +  "\n" + bfs
+
 
 #print output 
 f = open("Graph_build.py", 'w')

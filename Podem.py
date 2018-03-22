@@ -1,6 +1,7 @@
 import Gates
 import operator
-from Graph_Abramovici import G,bfs
+#from Graph_Abramovici import G,bfs
+from Graph_build import G,bfs
 import Implication_Stack as IS
 
 def primary_input():
@@ -289,17 +290,19 @@ def print_Backtrace_Graph_edges(l):
 		
 def print_Graph_edges():
 	global G	
-	#output =str(faulty_edge_list) +"\n"
+	output =str(faulty_edge_list) +"\n"
 	print "faulty_edge_list",faulty_edge_list
 	for item in G.edges(data=True):
-				#if(item[0]=='A' or item[0]=='B' or item[0]=='C' or item[0]=='D' or item[0]=='E'or item[0]=='F'):
+					#print item
+			if(G.nodes(data=True)[item[0]]['type'] =='input' or G.nodes(data=True)[item[1]]['type'] =='output'):
+					
 					print item[0],item[2]['value_non_fault'] ,item[2]['value_faulty']
-				#	output +=str(item[0])+" " + str(item[1])+" " + str(item[2]['value_non_fault'])+" " +str(item[2]['value_faulty']) +"\n" 
+					output +=str(item[0])+" " + str(item[1])+" " + str(item[2]['value_non_fault'])+" " +str(item[2]['value_faulty']) +"\n" 
 	
-	#~ output += "\n" 
-	#~ f = open("ATPG_output.txt", 'a+')
-	#~ f.write(output)
-	#~ f.close()
+	output += "\n" 
+	f = open("ATPG_output.txt", 'a+')
+	f.write(output)
+	f.close()
 	
 def error_at_PO():
 		global G
