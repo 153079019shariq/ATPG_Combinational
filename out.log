@@ -1,274 +1,316 @@
 (3, 3)
-{'A': 1, 'C': 1, 'B': 1, 'fanout1': 2, 'fanout2': 2, 'fanout3': 5, '1': 3, '3': 4, '2': 3, '5': 6, '4': 3, '6': 7, 'Y': 5, 'Z': 7}
+{'A': 1, 'C': 1, 'B': 1, 'fanout1': 2, 'fanout2': 3, 'fanout3': 4, 'fanout4': 6, 'fanout5': 10, 'fanout6': 8, '1': 3, 'Y': 11, '3': 7, '2': 5, '5': 9, '4': 7, '7': 9, '6': 11, '9': 11, 'X': 9, 'Z': 12, '8': 12}
 A 1 1 1 0
-C fanout2 1 1 0
+C 8 1 1 0
 B fanout1 1 1 0
 fanout1 1 0 0 0
-fanout1 2 0 0 0
-fanout1 4 0 0 0
-fanout1 6 0 0 0
+fanout1 fanout2 0 0 0
 fanout2 2 0 0 0
-fanout2 4 0 0 0
-fanout3 Y 0 0 0
-fanout3 5 1 1 0
-1 3 0 0 0
-3 fanout3 0 0 0
-2 3 0 0 0
-5 6 0 0 0
-4 5 0 0 0
-6 Z 0 0 0
+fanout2 6 0 0 0
+fanout3 3 0 0 0
+fanout3 2 0 0 0
+fanout3 7 0 0 0
+fanout4 8 0 0 0
+fanout4 3 0 0 0
+fanout4 4 0 0 0
+fanout5 9 0 0 0
+fanout5 6 0 0 0
+fanout6 5 0 0 0
+fanout6 7 0 0 0
+1 fanout3 0 0 0
+3 fanout6 0 0 0
+2 fanout4 0 0 0
+5 fanout5 1 1 0
+4 9 0 0 0
+7 X 0 0 0
+6 8 0 0 0
+9 Y 0 0 0
+8 Z 0 0 0
 A 1 1 1 0
-C fanout2 1 1 0
+C 8 1 1 0
 B fanout1 1 1 0
 fanout1 1 1 1 0
-fanout1 2 1 1 0
-fanout1 4 1 1 0
-fanout1 6 1 1 0
+fanout1 fanout2 1 1 0
 fanout2 2 1 1 0
-fanout2 4 1 1 0
-fanout3 Y 6 3 0
-fanout3 5 6 3 0
-1 3 2 3 0
-3 fanout3 6 3 0
-2 3 3 2 0
-5 6 4 7 0
-4 5 3 3 0
-6 Z 6 6 0
-PO_list [('fanout3', 'Y'), ('6', 'Z')]
-faulty_edge_list ['fanout3', '5', 'sa1']
-5 Y
-['5', '6', 'Z']
-edges [('5', '6'), ('6', 'Z')]
-i ('5', '6')
-i ('6', 'Z')
-5 Z
+fanout2 6 1 1 0
+fanout3 3 2 3 0
+fanout3 2 2 3 0
+fanout3 7 2 3 0
+fanout4 8 4 4 0
+fanout4 3 4 4 0
+fanout4 4 4 4 0
+fanout5 9 8 8 0
+fanout5 6 8 8 0
+fanout6 5 7 7 0
+fanout6 7 7 7 0
+1 fanout3 2 3 0
+3 fanout6 7 7 0
+2 fanout4 4 4 0
+5 fanout5 8 8 0
+4 9 5 5 0
+7 X 11 3 0
+6 8 10 10 0
+9 Y 14 6 0
+8 Z 16 2 0
+PO_list [('7', 'X'), ('9', 'Y'), ('8', 'Z')]
+faulty_edge_list ['5', 'fanout5', 'sa1']
+fanout5 X
+['fanout5', '9', 'Y']
+edges [('fanout5', '9'), ('9', 'Y')]
+i ('fanout5', '9')
+i ('9', 'Y')
+fanout5 Y
 X_path True
 **********************Objective ********************
 D_fronteir_list []
 **********************Backtrace ********************
-node1,node2 fanout3 5
-Before Backtrace ('3', 'fanout3') x x
+node1,node2 5 fanout5
+Before Backtrace ('fanout6', '5') x x
 None
-After Backtrace ('3', 'fanout3') 0 0
+G.nodes[node1]['gatetype'] 5
+val_assign 0
+G.nodes[node1]['gatetype'] not
+edge_to_assign ('fanout6', '5')
+After Backtrace ('fanout6', '5') 1 1
 None
-node1,node2 3 fanout3
-node1,node2 3 fanout3
-Before Backtrace ('1', '3') x x
-('2', '3') x x
+node1,node2 fanout6 5
+node1,node2 fanout6 5
+Before Backtrace ('3', 'fanout6') x x
+None
+After Backtrace ('3', 'fanout6') 1 1
+None
+node1,node2 3 fanout6
+node1,node2 3 fanout6
+Before Backtrace ('fanout3', '3') x x
+('fanout4', '3') x x
 None
 G.nodes[node1]['gatetype'] 3
-val_assign 0
-G.nodes[node1]['gatetype'] or
-edge_to_assign ('2', '3')
-After Backtrace ('1', '3') x x
-('2', '3') 0 0
+val_assign 1
+G.nodes[node1]['gatetype'] xnor
+edge_to_assign ('fanout4', '3')
+After Backtrace ('fanout3', '3') x x
+('fanout4', '3') 0 0
 None
-node1,node2 2 3
-node1,node2 2 3
-Before Backtrace ('fanout1', '2') x x
-('fanout2', '2') x x
+node1,node2 fanout4 3
+node1,node2 fanout4 3
+Before Backtrace ('2', 'fanout4') x x
+None
+After Backtrace ('2', 'fanout4') 0 0
+None
+node1,node2 2 fanout4
+node1,node2 2 fanout4
+Before Backtrace ('fanout2', '2') x x
+('fanout3', '2') x x
 None
 G.nodes[node1]['gatetype'] 2
 val_assign 0
-G.nodes[node1]['gatetype'] nand
-edge_to_assign ('fanout1', '2')
-After Backtrace ('fanout1', '2') 1 1
-('fanout2', '2') x x
+G.nodes[node1]['gatetype'] xnor
+edge_to_assign ('fanout3', '2')
+After Backtrace ('fanout2', '2') x x
+('fanout3', '2') 1 1
 None
-node1,node2 fanout1 2
-node1,node2 fanout1 2
+node1,node2 fanout3 2
+node1,node2 fanout3 2
+Before Backtrace ('1', 'fanout3') x x
+None
+After Backtrace ('1', 'fanout3') 1 1
+None
+node1,node2 1 fanout3
+node1,node2 1 fanout3
+Before Backtrace ('A', '1') x x
+('fanout1', '1') x x
+None
+G.nodes[node1]['gatetype'] 1
+val_assign 1
+G.nodes[node1]['gatetype'] and
+edge_to_assign ('A', '1')
+After Backtrace ('A', '1') 1 1
+('fanout1', '1') x x
+None
+node1,node2 A 1
+I_Stack.peek() ('A', '1') 1
+None
+**********************Forward Implication 1st********************
+new_node1 new_node2 fanout3 3
+new_node1 new_node2 fanout6 5
+new_node1 new_node2 fanout5 9
+new_node1 new_node2 fanout5 6
+new_node1 new_node2 fanout6 7
+new_node1 new_node2 fanout3 2
+new_node1 new_node2 fanout4 8
+new_node1 new_node2 fanout4 3
+new_node1 new_node2 fanout6 5
+new_node1 new_node2 fanout5 9
+new_node1 new_node2 fanout5 6
+new_node1 new_node2 fanout6 7
+new_node1 new_node2 fanout4 4
+new_node1 new_node2 fanout3 7
+**************************************************************
+faulty_edge_list ['5', 'fanout5', 'sa1']
+A 1 1 1
+C 8 x x
+B fanout1 x x
+fanout1 1 x x
+fanout1 fanout2 x x
+fanout2 2 x x
+fanout2 6 x x
+fanout3 3 x x
+fanout3 2 x x
+fanout3 7 x x
+fanout4 8 x x
+fanout4 3 x x
+fanout4 4 x x
+fanout5 9 x 1
+fanout5 6 x 1
+fanout6 5 x x
+fanout6 7 x x
+1 fanout3 x x
+3 fanout6 x x
+2 fanout4 x x
+5 fanout5 x 1
+4 9 x x
+7 X x x
+6 8 x x
+9 Y x 1
+8 Z x x
+One turn over try another
+PO_list [('7', 'X'), ('9', 'Y'), ('8', 'Z')]
+faulty_edge_list ['5', 'fanout5', 'sa1']
+fanout5 X
+['fanout5', '9', 'Y']
+edges [('fanout5', '9'), ('9', 'Y')]
+i ('fanout5', '9')
+i ('9', 'Y')
+fanout5 Y
+X_path True
+**********************Objective ********************
+D_fronteir_list ['fanout5']
+**********************Backtrace ********************
+node1,node2 5 fanout5
+Before Backtrace ('fanout6', '5') x x
+None
+G.nodes[node1]['gatetype'] 5
+val_assign 0
+G.nodes[node1]['gatetype'] not
+edge_to_assign ('fanout6', '5')
+After Backtrace ('fanout6', '5') 1 1
+None
+node1,node2 fanout6 5
+node1,node2 fanout6 5
+Before Backtrace ('3', 'fanout6') x x
+None
+After Backtrace ('3', 'fanout6') 1 1
+None
+node1,node2 3 fanout6
+node1,node2 3 fanout6
+Before Backtrace ('fanout3', '3') x x
+('fanout4', '3') x x
+None
+G.nodes[node1]['gatetype'] 3
+val_assign 1
+G.nodes[node1]['gatetype'] xnor
+edge_to_assign ('fanout4', '3')
+After Backtrace ('fanout3', '3') x x
+('fanout4', '3') 0 0
+None
+node1,node2 fanout4 3
+node1,node2 fanout4 3
+Before Backtrace ('2', 'fanout4') x x
+None
+After Backtrace ('2', 'fanout4') 0 0
+None
+node1,node2 2 fanout4
+node1,node2 2 fanout4
+Before Backtrace ('fanout2', '2') x x
+('fanout3', '2') x x
+None
+G.nodes[node1]['gatetype'] 2
+val_assign 0
+G.nodes[node1]['gatetype'] xnor
+edge_to_assign ('fanout3', '2')
+After Backtrace ('fanout2', '2') x x
+('fanout3', '2') 1 1
+None
+node1,node2 fanout3 2
+node1,node2 fanout3 2
+Before Backtrace ('1', 'fanout3') x x
+None
+After Backtrace ('1', 'fanout3') 1 1
+None
+node1,node2 1 fanout3
+node1,node2 1 fanout3
+Before Backtrace ('A', '1') 1 1
+('fanout1', '1') x x
+None
+G.nodes[node1]['gatetype'] 1
+val_assign 1
+G.nodes[node1]['gatetype'] and
+edge_to_assign ('fanout1', '1')
+After Backtrace ('A', '1') 1 1
+('fanout1', '1') 1 1
+None
+node1,node2 fanout1 1
+node1,node2 fanout1 1
 Before Backtrace ('B', 'fanout1') x x
 None
 After Backtrace ('B', 'fanout1') 1 1
 None
 node1,node2 B fanout1
-I_Stack.peek() ('B', 'fanout1') 1
+I_Stack.peek() ('A', '1') 1
+('B', 'fanout1') 1
 None
 **********************Forward Implication 1st********************
-Fault at primary output_non_faulty
-Fault at primary output_non_faulty
-Fault at primary output_non_faulty
-Fault at primary output_non_faulty
+new_node1 new_node2 fanout1 1
+new_node1 new_node2 fanout3 3
+new_node1 new_node2 fanout6 5
+new_node1 new_node2 fanout5 9
+new_node1 new_node2 fanout5 6
+new_node1 new_node2 fanout6 7
+new_node1 new_node2 fanout3 2
+new_node1 new_node2 fanout4 8
+new_node1 new_node2 fanout4 3
+new_node1 new_node2 fanout6 5
+new_node1 new_node2 fanout5 9
+new_node1 new_node2 fanout5 6
+new_node1 new_node2 fanout6 7
+new_node1 new_node2 fanout4 4
+new_node1 new_node2 fanout3 7
+new_node1 new_node2 fanout1 fanout2
+new_node1 new_node2 fanout2 2
+new_node1 new_node2 fanout4 8
+new_node1 new_node2 fanout4 3
+new_node1 new_node2 fanout6 5
+new_node1 new_node2 fanout5 9
+new_node1 new_node2 fanout5 6
+new_node1 new_node2 fanout6 7
+new_node1 new_node2 fanout4 4
+new_node1 new_node2 fanout2 6
 **************************************************************
-faulty_edge_list ['fanout3', '5', 'sa1']
-A 1 x x
-C fanout2 x x
+faulty_edge_list ['5', 'fanout5', 'sa1']
+A 1 1 1
+C 8 x x
 B fanout1 1 1
 fanout1 1 1 1
-fanout1 2 1 1
-fanout1 4 1 1
-fanout1 6 1 1
-fanout2 2 x x
-fanout2 4 x x
-fanout3 Y x x
-fanout3 5 x 1
-1 3 x x
-3 fanout3 x x
-2 3 x x
-5 6 x x
-4 5 x x
-6 Z x x
-One turn over try another
-PO_list [('fanout3', 'Y'), ('6', 'Z')]
-faulty_edge_list ['fanout3', '5', 'sa1']
-5 Y
-['5', '6', 'Z']
-edges [('5', '6'), ('6', 'Z')]
-i ('5', '6')
-i ('6', 'Z')
-5 Z
-X_path True
-**********************Objective ********************
-D_fronteir_list ['5']
-**********************Backtrace ********************
-node1,node2 fanout3 5
-Before Backtrace ('3', 'fanout3') x x
-None
-After Backtrace ('3', 'fanout3') 0 0
-None
-node1,node2 3 fanout3
-node1,node2 3 fanout3
-Before Backtrace ('1', '3') x x
-('2', '3') x x
-None
-G.nodes[node1]['gatetype'] 3
-val_assign 0
-G.nodes[node1]['gatetype'] or
-edge_to_assign ('2', '3')
-After Backtrace ('1', '3') x x
-('2', '3') 0 0
-None
-node1,node2 2 3
-node1,node2 2 3
-Before Backtrace ('fanout1', '2') 1 1
-('fanout2', '2') x x
-None
-G.nodes[node1]['gatetype'] 2
-val_assign 0
-G.nodes[node1]['gatetype'] nand
-edge_to_assign ('fanout2', '2')
-After Backtrace ('fanout1', '2') 1 1
-('fanout2', '2') 1 1
-None
-node1,node2 fanout2 2
-node1,node2 fanout2 2
-Before Backtrace ('C', 'fanout2') x x
-None
-After Backtrace ('C', 'fanout2') 1 1
-None
-node1,node2 C fanout2
-I_Stack.peek() ('B', 'fanout1') 1
-('C', 'fanout2') 1
-None
-**********************Forward Implication 1st********************
-Fault at primary output_non_faulty
-Fault at primary output_non_faulty
-**************************************************************
-faulty_edge_list ['fanout3', '5', 'sa1']
-A 1 x x
-C fanout2 1 1
-B fanout1 1 1
-fanout1 1 1 1
-fanout1 2 1 1
-fanout1 4 1 1
-fanout1 6 1 1
+fanout1 fanout2 1 1
 fanout2 2 1 1
-fanout2 4 1 1
-fanout3 Y x x
-fanout3 5 x 1
-1 3 x x
-3 fanout3 x x
-2 3 0 0
-5 6 0 0
-4 5 0 0
-6 Z 1 1
+fanout2 6 1 1
+fanout3 3 1 1
+fanout3 2 1 1
+fanout3 7 1 1
+fanout4 8 1 1
+fanout4 3 1 1
+fanout4 4 1 1
+fanout5 9 0 1
+fanout5 6 0 1
+fanout6 5 1 1
+fanout6 7 1 1
+1 fanout3 1 1
+3 fanout6 1 1
+2 fanout4 1 1
+5 fanout5 0 1
+4 9 0 0
+7 X 0 0
+6 8 1 0
+9 Y 0 1
+8 Z x 1
 One turn over try another
-PO_list [('fanout3', 'Y'), ('6', 'Z')]
-faulty_edge_list ['fanout3', '5', 'sa1']
-5 Y
-['5', '6', 'Z']
-edges [('5', '6'), ('6', 'Z')]
-i ('5', '6')
-5 Z
-X_path False
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$SECOND TURN BEGIN$$$$$$$$$
-faulty_edge_list ['fanout3', '5', 'sa1']
-A 1 x x
-C fanout2 0 0
-B fanout1 1 1
-fanout1 1 1 1
-fanout1 2 1 1
-fanout1 4 1 1
-fanout1 6 1 1
-fanout2 2 1 1
-fanout2 4 1 1
-fanout3 Y x x
-fanout3 5 x 1
-1 3 x x
-3 fanout3 x x
-2 3 0 0
-5 6 0 0
-4 5 0 0
-6 Z 1 1
-**********************Forward Implication 2nd********************
-Fault at primary output_non_faulty
-Fault at primary output_non_faulty
-PO_list [('fanout3', 'Y'), ('6', 'Z')]
-faulty_edge_list ['fanout3', '5', 'sa1']
-5 Y
-['5', '6', 'Z']
-edges [('5', '6'), ('6', 'Z')]
-i ('5', '6')
-5 Z
-X_path False
-faulty_edge_list ['fanout3', '5', 'sa1']
-A 1 x x
-C fanout2 0 0
-B fanout1 1 1
-fanout1 1 1 1
-fanout1 2 1 1
-fanout1 4 1 1
-fanout1 6 1 1
-fanout2 2 0 0
-fanout2 4 0 0
-fanout3 Y 1 1
-fanout3 5 1 1
-1 3 x x
-3 fanout3 1 1
-2 3 1 1
-5 6 1 1
-4 5 1 1
-6 Z 0 0
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$SECOND TURN BEGIN$$$$$$$$$
-faulty_edge_list ['fanout3', '5', 'sa1']
-A 1 x x
-C fanout2 0 0
-B fanout1 0 0
-fanout1 1 1 1
-fanout1 2 1 1
-fanout1 4 1 1
-fanout1 6 1 1
-fanout2 2 0 0
-fanout2 4 0 0
-fanout3 Y 1 1
-fanout3 5 1 1
-1 3 x x
-3 fanout3 1 1
-2 3 1 1
-5 6 1 1
-4 5 1 1
-6 Z 0 0
-**********************Forward Implication 2nd********************
-Fault at primary output_non_faulty
-Fault at primary output_non_faulty
-Fault at primary output_non_faulty
-Fault at primary output_non_faulty
-PO_list [('fanout3', 'Y'), ('6', 'Z')]
-faulty_edge_list ['fanout3', '5', 'sa1']
-5 Y
-['5', '6', 'Z']
-edges [('5', '6'), ('6', 'Z')]
-i ('5', '6')
-5 Z
-X_path False
-NO TEST VECTOR POSSIBLE

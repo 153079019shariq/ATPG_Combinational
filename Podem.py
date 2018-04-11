@@ -1,9 +1,9 @@
 
-import matplotlib.pyplot as plt
+
 import networkx as nx
-from collections import OrderedDict
 import Gates
 #from Graph_Controlability_Observability import G   Prob 7.3 Figure 7.39
+from Graph_Figure_7_24 import G
 import Implication_Stack as IS
 from  Controlability_Observability import *
 def primary_input():
@@ -26,7 +26,7 @@ def primary_output():
 	
 	
 def Forward_Implication_fanout(node1,node2,list_outedge):
-	#~ print "@@@@@@@@@Forward Implication Fanout"
+	#print "@@@@@@@@@Forward Implication Fanout"
 	global G
 	#~ print "faulty_edge_list[:2]",faulty_edge_list[:2]
 	#~ print "G[node1][node2]['value_faulty']",G[node1][node2]['value_faulty']
@@ -36,16 +36,17 @@ def Forward_Implication_fanout(node1,node2,list_outedge):
 		if(faulty_edge_list[:2]!=list(list_outedge[i])):
 			#~ print "***********"
 			G.edges[list_outedge[i]]['value_faulty']  = G[node1][node2]['value_faulty']
-			#~ print "G.edges[list_outedge[i]]['value_non_fault']",G.edges[list_outedge[i]]['value_non_fault']
 		new_node1		=list_outedge[i][0]
-		new_node2		=list_outedge[i][1]	
-		if(G.nodes[new_node2]['type']=='gate'):
-			Forward_Implication_gates(new_node1,new_node2)
+		new_node2		=list_outedge[i][1]
+		print "new_node1 new_node2",new_node1,new_node2	
+		if(G.nodes[new_node2]['type']=='gate' or G.nodes[new_node2]['type']=='fanout'):
+			Forward_Implication(new_node1,new_node2)
+		
 		new_node1	= node1
 		new_node2	= node2
 	
 def Forward_Implication_gates(node1,node2):
-	#~ print "@@@@@@@@@Forward Implication Gates"
+	#print "@@@@@@@@@Forward Implication Gates"
 	global G
 	list_inedge =list(G.in_edges(nbunch=node2, data=False))
 	list_input_non_faulty =[]
@@ -53,29 +54,25 @@ def Forward_Implication_gates(node1,node2):
 	for i in range(len(list_inedge)):
 		list_input_non_faulty.append(G.edges[list_inedge[i]]['value_non_fault'])
 		list_input_faulty.append(G.edges[list_inedge[i]]['value_faulty'])
-	#~ print "node2",node2
-	#~ print "G.nodes[node2]['gatetype']",G.nodes[node2]['gatetype']
 	
 	if(G.nodes[node2]['gatetype']=='and'):
-		output_non_faulty = Gates.AND_gate(list_input_non_faulty[0],list_input_non_faulty[1])
-		output_faulty	  = Gates.AND_gate(list_input_faulty[0],list_input_faulty[1])
+		output_non_faulty = Gates.AND_gate(list_input_non_faulty)
+		output_faulty	  = Gates.AND_gate(list_input_faulty)
 	elif(G.nodes[node2]['gatetype']=='or'):
-		output_non_faulty =	Gates.OR_gate(list_input_non_faulty[0],list_input_non_faulty[1])
-		output_faulty	  =	Gates.OR_gate(list_input_faulty[0],list_input_faulty[1])
+		output_non_faulty =	Gates.OR_gate(list_input_non_faulty)
+		output_faulty	  =	Gates.OR_gate(list_input_faulty)
 	elif(G.nodes[node2]['gatetype']=='nand'):
-		output_non_faulty =	Gates.NAND_gate(list_input_non_faulty[0],list_input_non_faulty[1])
-		output_faulty	  = Gates.NAND_gate(list_input_faulty[0],list_input_faulty[1])
+		output_non_faulty =	Gates.NAND_gate(list_input_non_faulty)
+		output_faulty	  = Gates.NAND_gate(list_input_faulty)
 	elif(G.nodes[node2]['gatetype']=='nor'):
-		output_non_faulty =	Gates.NOR_gate(list_input_non_faulty[0],list_input_non_faulty[1])
-		output_faulty      =Gates.NOR_gate(list_input_faulty[0],list_input_faulty[1])
+		output_non_faulty =	Gates.NOR_gate(list_input_non_faulty)
+		output_faulty      =Gates.NOR_gate(list_input_faulty)
 	elif(G.nodes[node2]['gatetype']=='xor'):
-		#print "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXOR"
-		#print "list_input_non_faulty",list_input_non_faulty
-		output_non_faulty =	Gates.XOR_gate(list_input_non_faulty[0],list_input_non_faulty[1])
-		output_faulty      =Gates.XOR_gate(list_input_faulty[0],list_input_faulty[1])
+		output_non_faulty =	Gates.XOR_gate(list_input_non_faulty)
+		output_faulty      =Gates.XOR_gate(list_input_faulty)
 	elif(G.nodes[node2]['gatetype']=='xnor'):
-		output_non_faulty =	Gates.XNOR_gate(list_input_non_faulty[0],list_input_non_faulty[1])
-		output_faulty      =Gates.XNOR_gate(list_input_faulty[0],list_input_faulty[1])
+		output_non_faulty =	Gates.XNOR_gate(list_input_non_faulty)
+		output_faulty      =Gates.XNOR_gate(list_input_faulty)
 	elif(G.nodes[node2]['gatetype']=='not'):
 		output_non_faulty =	Gates.NOT_gate(list_input_non_faulty[0])
 		output_faulty	  = Gates.NOT_gate(list_input_faulty[0])
@@ -88,28 +85,22 @@ def Forward_Implication_gates(node1,node2):
 	if(faulty_edge_list[:2] !=list(list(G.out_edges(nbunch=node2, data=False))[0])): 		
 		G.edges[list(G.out_edges(nbunch=node2, data=False))[0]]['value_faulty']    =output_faulty 
 	
-	#~ print "node1 node2,node2out_edge_non_fault_val",node1,node2,G.edges[list(G.out_edges(nbunch=node2, data=False))[0]]['value_non_fault']
-	#print "list_input_non_faulty,gate_output",list_inedge,list_input_non_faulty ,G.edges[list(G.out_edges(nbunch=node2, data=False))[0]]['value_non_fault'],G.edges[list(G.out_edges(nbunch=node2, data=False))[0]]['value_faulty']
-
+	
 		
 	node1 =list(G.out_edges(nbunch=node2, data=False))[0][0]
 	node2 =list(G.out_edges(nbunch=node2, data=False))[0][1]
-			#print "node1 node2",node1,node2
-	if(G.nodes[node2]['type']=='output'):		#Check whether Fault Propagated to Primary output_non_faulty
-				print "Fault at primary output_non_faulty"
-	else:	
-				Forward_Implication(node1,node2)																	   
+	#print "node1 node2",node1,node2
+	if(G.nodes[node2]['type']!='output'):		#Check whether Fault Propagated to Primary output_non_faulty
+		Forward_Implication(node1,node2)																	   
 
 
 def Forward_Implication(node1,node2):
-	list_outedge =list(G.out_edges(nbunch=node2, data=False))						#Checking the forward implication of node2 as node1 is the Primary input
-	#~ print "node1 node2",node1,node2
-	#~ print "list_outedge",list_outedge
+	list_outedge =list(G.out_edges(nbunch=node2, data=False))				#Checking the forward implication of node2 as node1 is the Primary input
+
 	
 	if(G.nodes[node2]['type']=='fanout'):
 		Forward_Implication_fanout(node1,node2,list_outedge)
 	elif(G.nodes[node2]['type']=='gate'):
-		#print "node1 node2",node1,node2
 		Forward_Implication_gates(node1,node2)
 		
 		 
@@ -273,7 +264,7 @@ def max_min_Controllability(l,node1,val_assign):
 				if(val_assign =='1'):
 					edge =edge_max_cc1_controllability
 				else:
-					edge =edge_max_cc0_controllability
+					edge =edge_max_cc1_controllability
 					
 			
 			
@@ -297,7 +288,7 @@ def Backtrace(node1,node2):
 					print "edge_to_assign",edge_to_assign
 			
 
-					if(G.nodes[node1]['gatetype']=='nand' or G.nodes[node1]['gatetype']=='nor' or G.nodes[node1]['gatetype']=='not'):
+					if(G.nodes[node1]['gatetype']=='nand' or G.nodes[node1]['gatetype']=='nor' or G.nodes[node1]['gatetype']=='not' or G.nodes[node1]['gatetype']=='xnor'):
 						G.edges[edge_to_assign]['value_non_fault'] = str(int(not(int(G[node1][node2]['value_non_fault']))))				# Inversion parity =1
 						
 					else:

@@ -1,4 +1,4 @@
-from Graph_Controlability_Observability import G
+from  Graph_Figure_7_24 import G 
 import Gates
 import networkx as nx
 from collections import OrderedDict
