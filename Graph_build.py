@@ -20,3 +20,6 @@ G.add_node('PI',type='check')
 G.add_edges_from([('G3', 'fanout1'),('G12', 'fanout3'),('G9', 'fanout2'),('G17', 'output2'),('G16', 'output1'),('G1', 'G8'),('fanout1', 'G8'),('fanout1', 'G9'),('G4', 'G9'),('G2', 'G12'),('fanout2', 'G12'),('fanout2', 'G15'),('G5', 'G15'),('G8', 'G16'),('fanout3', 'G16'),('fanout3', 'G17'),('G15', 'G17'),('PI', 'G1'),('PI', 'G2'),('PI', 'G3'),('PI', 'G4'),('PI', 'G5')], value_non_fault='x',value_faulty='x', fault='')
 G.add_edge('fanout3','G17', value_non_fault='x',value_faulty='x',fault='sa1')
 bfs=nx.single_source_shortest_path_length(G,'PI')
+
+
+

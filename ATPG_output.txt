@@ -196,3 +196,66 @@ G1 G8 x x
 G17 output2 1 0
 G16 output1 1 1
 
+['fanout3', 'G17', 'sa1']
+G5 G15 0 0
+G4 G9 x x
+G3 fanout1 0 0
+G2 G12 1 1
+G1 G8 x x
+G17 output2 1 0
+G16 output1 1 1
+
+['fanout3', 'G17', 'sa1']
+G5 G15 0 0
+G4 G9 x x
+G3 fanout1 0 0
+G2 G12 1 1
+G1 G8 x x
+G17 output2 1 0
+G16 output1 1 1
+
+['fanout3', 'G17', 'sa1']
+G5 G15 0 0
+G4 G9 x x
+G3 fanout1 0 0
+G2 G12 1 1
+G1 G8 x x
+G17 output2 1 0
+G16 output1 1 1
+
+['fanout3', 'G17', 'sa1']
+G5 G15 0 0
+G4 G9 x x
+G3 fanout1 0 0
+G2 G12 1 1
+G1 G8 x x
+G17 output2 1 0
+G16 output1 1 1
+
+['fanout3', 'G17', 'sa1']
+G5 G15 0 0
+G4 G9 x x
+G3 fanout1 0 0
+G2 G12 1 1
+G1 G8 x x
+G17 output2 1 0
+G16 output1 1 1
+
+['fanout3', 'G17', 'sa1']
+G5 G15 0 0
+G4 G9 x x
+G3 fanout1 0 0
+G2 G12 1 1
+G1 G8 x x
+G17 output2 1 0
+G16 output1 1 1
+
+['fanout3', 'G17', 'sa1']
+G5 G15 0 0
+G4 G9 x x
+G3 fanout1 0 0
+G2 G12 1 1
+G1 G8 x x
+G17 output2 1 0
+G16 output1 1 1
+

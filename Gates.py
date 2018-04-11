@@ -183,6 +183,15 @@ def NOT_Obser(edgeCO):
 	list_temp.append(edgeCO +1)
 	return list_temp
 
+
+
+
+
+
+
+
+
+
 list_predecessorCC0	=[1,2]	
 list_predecessorCC1 =[3,4]
 
