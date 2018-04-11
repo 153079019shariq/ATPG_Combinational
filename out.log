@@ -1,134 +1,274 @@
-1
-<type 'str'>
+(3, 3)
+{'A': 1, 'C': 1, 'B': 1, 'fanout1': 2, 'fanout2': 2, 'fanout3': 5, '1': 3, '3': 4, '2': 3, '5': 6, '4': 3, '6': 7, 'Y': 5, 'Z': 7}
+A 1 1 1 0
+C fanout2 1 1 0
+B fanout1 1 1 0
+fanout1 1 0 0 0
+fanout1 2 0 0 0
+fanout1 4 0 0 0
+fanout1 6 0 0 0
+fanout2 2 0 0 0
+fanout2 4 0 0 0
+fanout3 Y 0 0 0
+fanout3 5 1 1 0
+1 3 0 0 0
+3 fanout3 0 0 0
+2 3 0 0 0
+5 6 0 0 0
+4 5 0 0 0
+6 Z 0 0 0
+A 1 1 1 0
+C fanout2 1 1 0
+B fanout1 1 1 0
+fanout1 1 1 1 0
+fanout1 2 1 1 0
+fanout1 4 1 1 0
+fanout1 6 1 1 0
+fanout2 2 1 1 0
+fanout2 4 1 1 0
+fanout3 Y 6 3 0
+fanout3 5 6 3 0
+1 3 2 3 0
+3 fanout3 6 3 0
+2 3 3 2 0
+5 6 4 7 0
+4 5 3 3 0
+6 Z 6 6 0
+PO_list [('fanout3', 'Y'), ('6', 'Z')]
+faulty_edge_list ['fanout3', '5', 'sa1']
+5 Y
+['5', '6', 'Z']
+edges [('5', '6'), ('6', 'Z')]
+i ('5', '6')
+i ('6', 'Z')
+5 Z
+X_path True
 **********************Objective ********************
+D_fronteir_list []
 **********************Backtrace ********************
-Before Backtrace ('G12', 'fanout3') x x
+node1,node2 fanout3 5
+Before Backtrace ('3', 'fanout3') x x
 None
-After Backtrace ('G12', 'fanout3') 1 1
+After Backtrace ('3', 'fanout3') 0 0
 None
-Before Backtrace ('fanout2', 'G12') x x
-('G2', 'G12') x x
+node1,node2 3 fanout3
+node1,node2 3 fanout3
+Before Backtrace ('1', '3') x x
+('2', '3') x x
 None
-After Backtrace ('fanout2', 'G12') 0 0
-('G2', 'G12') x x
+G.nodes[node1]['gatetype'] 3
+val_assign 0
+G.nodes[node1]['gatetype'] or
+edge_to_assign ('2', '3')
+After Backtrace ('1', '3') x x
+('2', '3') 0 0
 None
-Before Backtrace ('G9', 'fanout2') x x
+node1,node2 2 3
+node1,node2 2 3
+Before Backtrace ('fanout1', '2') x x
+('fanout2', '2') x x
 None
-After Backtrace ('G9', 'fanout2') 0 0
+G.nodes[node1]['gatetype'] 2
+val_assign 0
+G.nodes[node1]['gatetype'] nand
+edge_to_assign ('fanout1', '2')
+After Backtrace ('fanout1', '2') 1 1
+('fanout2', '2') x x
 None
-Before Backtrace ('fanout1', 'G9') x x
-('G4', 'G9') x x
+node1,node2 fanout1 2
+node1,node2 fanout1 2
+Before Backtrace ('B', 'fanout1') x x
 None
-After Backtrace ('fanout1', 'G9') 1 1
-('G4', 'G9') x x
+After Backtrace ('B', 'fanout1') 1 1
 None
-Before Backtrace ('G3', 'fanout1') x x
-None
-After Backtrace ('G3', 'fanout1') 1 1
+node1,node2 B fanout1
+I_Stack.peek() ('B', 'fanout1') 1
 None
 **********************Forward Implication 1st********************
-node1 node2 G3 fanout1
-list_outedge [('fanout1', 'G9'), ('fanout1', 'G8')]
-@@@@@@@@@Forward Implication Fanout
-new_node1,node2 fanout1 G9
-@@@@@@@@@Forward Implication Gates
-new_node1,node2 fanout1 G8
-@@@@@@@@@Forward Implication Gates
+Fault at primary output_non_faulty
+Fault at primary output_non_faulty
+Fault at primary output_non_faulty
+Fault at primary output_non_faulty
 **************************************************************
-faulty_edge_list ['fanout3', 'G17', 'sa0']
-G5 G15 x x
-G4 G9 x x
-G3 fanout1 1 1
-G2 G12 x x
-G1 G8 x x
-fanout1 G9 1 1
-fanout1 G8 1 1
-fanout2 G15 x x
-fanout2 G12 0 0
-fanout3 G17 1 0
-fanout3 G16 x x
-G9 fanout2 x x
-G8 G16 x x
-G17 output2 x x
-G16 output1 x x
-G15 G17 x x
-G12 fanout3 1 1
+faulty_edge_list ['fanout3', '5', 'sa1']
+A 1 x x
+C fanout2 x x
+B fanout1 1 1
+fanout1 1 1 1
+fanout1 2 1 1
+fanout1 4 1 1
+fanout1 6 1 1
+fanout2 2 x x
+fanout2 4 x x
+fanout3 Y x x
+fanout3 5 x 1
+1 3 x x
+3 fanout3 x x
+2 3 x x
+5 6 x x
+4 5 x x
+6 Z x x
+One turn over try another
+PO_list [('fanout3', 'Y'), ('6', 'Z')]
+faulty_edge_list ['fanout3', '5', 'sa1']
+5 Y
+['5', '6', 'Z']
+edges [('5', '6'), ('6', 'Z')]
+i ('5', '6')
+i ('6', 'Z')
+5 Z
+X_path True
 **********************Objective ********************
-node_D_fronteir G17
+D_fronteir_list ['5']
 **********************Backtrace ********************
-Before Backtrace ('fanout2', 'G15') x x
-('G5', 'G15') x x
+node1,node2 fanout3 5
+Before Backtrace ('3', 'fanout3') x x
 None
-After Backtrace ('fanout2', 'G15') 0 0
-('G5', 'G15') x x
+After Backtrace ('3', 'fanout3') 0 0
 None
-Before Backtrace ('G9', 'fanout2') x x
+node1,node2 3 fanout3
+node1,node2 3 fanout3
+Before Backtrace ('1', '3') x x
+('2', '3') x x
 None
-After Backtrace ('G9', 'fanout2') 0 0
+G.nodes[node1]['gatetype'] 3
+val_assign 0
+G.nodes[node1]['gatetype'] or
+edge_to_assign ('2', '3')
+After Backtrace ('1', '3') x x
+('2', '3') 0 0
 None
-Before Backtrace ('fanout1', 'G9') 1 1
-('G4', 'G9') x x
+node1,node2 2 3
+node1,node2 2 3
+Before Backtrace ('fanout1', '2') 1 1
+('fanout2', '2') x x
 None
-After Backtrace ('fanout1', 'G9') 1 1
-('G4', 'G9') 1 1
+G.nodes[node1]['gatetype'] 2
+val_assign 0
+G.nodes[node1]['gatetype'] nand
+edge_to_assign ('fanout2', '2')
+After Backtrace ('fanout1', '2') 1 1
+('fanout2', '2') 1 1
+None
+node1,node2 fanout2 2
+node1,node2 fanout2 2
+Before Backtrace ('C', 'fanout2') x x
+None
+After Backtrace ('C', 'fanout2') 1 1
+None
+node1,node2 C fanout2
+I_Stack.peek() ('B', 'fanout1') 1
+('C', 'fanout2') 1
 None
 **********************Forward Implication 1st********************
-node1 node2 G4 G9
-list_outedge [('G9', 'fanout2')]
-@@@@@@@@@Forward Implication Gates
-node1 node2 G9 fanout2
-list_outedge [('fanout2', 'G15'), ('fanout2', 'G12')]
-@@@@@@@@@Forward Implication Fanout
-new_node1,node2 fanout2 G15
-@@@@@@@@@Forward Implication Gates
-node1 node2 G15 G17
-list_outedge [('G17', 'output2')]
-@@@@@@@@@Forward Implication Gates
- 
-new_node1,node2 fanout2 G12
-@@@@@@@@@Forward Implication Gates
-node1 node2 G12 fanout3
-list_outedge [('fanout3', 'G17'), ('fanout3', 'G16')]
-@@@@@@@@@Forward Implication Fanout
-new_node1,node2 fanout3 G17
-@@@@@@@@@Forward Implication Gates
- 
-new_node1,node2 fanout3 G16
-@@@@@@@@@Forward Implication Gates
+Fault at primary output_non_faulty
+Fault at primary output_non_faulty
 **************************************************************
-faulty_edge_list ['fanout3', 'G17', 'sa0']
-G5 G15 x x
-G4 G9 1 1
-G3 fanout1 1 1
-G2 G12 x x
-G1 G8 x x
-fanout1 G9 1 1
-fanout1 G8 1 1
-fanout2 G15 0 0
-fanout2 G12 0 0
-fanout3 G17 1 0
-fanout3 G16 1 1
-G9 fanout2 0 0
-G8 G16 x x
-G17 output2 0 1
-G16 output1 x x
-G15 G17 1 1
-G12 fanout3 1 1
-faulty_edge_list ['fanout3', 'G17', 'sa0']
-G5 G15 x x
-G4 G9 1 1
-G3 fanout1 1 1
-G2 G12 x x
-G1 G8 x x
-fanout1 G9 1 1
-fanout1 G8 1 1
-fanout2 G15 0 0
-fanout2 G12 0 0
-fanout3 G17 1 0
-fanout3 G16 1 1
-G9 fanout2 0 0
-G8 G16 x x
-G17 output2 0 1
-G16 output1 x x
-G15 G17 1 1
-G12 fanout3 1 1
+faulty_edge_list ['fanout3', '5', 'sa1']
+A 1 x x
+C fanout2 1 1
+B fanout1 1 1
+fanout1 1 1 1
+fanout1 2 1 1
+fanout1 4 1 1
+fanout1 6 1 1
+fanout2 2 1 1
+fanout2 4 1 1
+fanout3 Y x x
+fanout3 5 x 1
+1 3 x x
+3 fanout3 x x
+2 3 0 0
+5 6 0 0
+4 5 0 0
+6 Z 1 1
+One turn over try another
+PO_list [('fanout3', 'Y'), ('6', 'Z')]
+faulty_edge_list ['fanout3', '5', 'sa1']
+5 Y
+['5', '6', 'Z']
+edges [('5', '6'), ('6', 'Z')]
+i ('5', '6')
+5 Z
+X_path False
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$SECOND TURN BEGIN$$$$$$$$$
+faulty_edge_list ['fanout3', '5', 'sa1']
+A 1 x x
+C fanout2 0 0
+B fanout1 1 1
+fanout1 1 1 1
+fanout1 2 1 1
+fanout1 4 1 1
+fanout1 6 1 1
+fanout2 2 1 1
+fanout2 4 1 1
+fanout3 Y x x
+fanout3 5 x 1
+1 3 x x
+3 fanout3 x x
+2 3 0 0
+5 6 0 0
+4 5 0 0
+6 Z 1 1
+**********************Forward Implication 2nd********************
+Fault at primary output_non_faulty
+Fault at primary output_non_faulty
+PO_list [('fanout3', 'Y'), ('6', 'Z')]
+faulty_edge_list ['fanout3', '5', 'sa1']
+5 Y
+['5', '6', 'Z']
+edges [('5', '6'), ('6', 'Z')]
+i ('5', '6')
+5 Z
+X_path False
+faulty_edge_list ['fanout3', '5', 'sa1']
+A 1 x x
+C fanout2 0 0
+B fanout1 1 1
+fanout1 1 1 1
+fanout1 2 1 1
+fanout1 4 1 1
+fanout1 6 1 1
+fanout2 2 0 0
+fanout2 4 0 0
+fanout3 Y 1 1
+fanout3 5 1 1
+1 3 x x
+3 fanout3 1 1
+2 3 1 1
+5 6 1 1
+4 5 1 1
+6 Z 0 0
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$SECOND TURN BEGIN$$$$$$$$$
+faulty_edge_list ['fanout3', '5', 'sa1']
+A 1 x x
+C fanout2 0 0
+B fanout1 0 0
+fanout1 1 1 1
+fanout1 2 1 1
+fanout1 4 1 1
+fanout1 6 1 1
+fanout2 2 0 0
+fanout2 4 0 0
+fanout3 Y 1 1
+fanout3 5 1 1
+1 3 x x
+3 fanout3 1 1
+2 3 1 1
+5 6 1 1
+4 5 1 1
+6 Z 0 0
+**********************Forward Implication 2nd********************
+Fault at primary output_non_faulty
+Fault at primary output_non_faulty
+Fault at primary output_non_faulty
+Fault at primary output_non_faulty
+PO_list [('fanout3', 'Y'), ('6', 'Z')]
+faulty_edge_list ['fanout3', '5', 'sa1']
+5 Y
+['5', '6', 'Z']
+edges [('5', '6'), ('6', 'Z')]
+i ('5', '6')
+5 Z
+X_path False
+NO TEST VECTOR POSSIBLE

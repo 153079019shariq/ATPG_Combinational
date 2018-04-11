@@ -3,9 +3,9 @@ import matplotlib.pyplot as plt
 import networkx as nx
 from collections import OrderedDict
 import Gates
-from Graph_Controlability_Observability import G
+#from Graph_Controlability_Observability import G   Prob 7.3 Figure 7.39
 import Implication_Stack as IS
-
+from  Controlability_Observability import *
 def primary_input():
 	PI_list= []
 	
@@ -69,8 +69,8 @@ def Forward_Implication_gates(node1,node2):
 		output_non_faulty =	Gates.NOR_gate(list_input_non_faulty[0],list_input_non_faulty[1])
 		output_faulty      =Gates.NOR_gate(list_input_faulty[0],list_input_faulty[1])
 	elif(G.nodes[node2]['gatetype']=='xor'):
-		print "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXOR"
-		print "list_input_non_faulty",list_input_non_faulty
+		#print "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXOR"
+		#print "list_input_non_faulty",list_input_non_faulty
 		output_non_faulty =	Gates.XOR_gate(list_input_non_faulty[0],list_input_non_faulty[1])
 		output_faulty      =Gates.XOR_gate(list_input_faulty[0],list_input_faulty[1])
 	elif(G.nodes[node2]['gatetype']=='xnor'):
@@ -207,41 +207,128 @@ def undefined_ip(node_D_fronteir):
 			
 			
 											
-						
+		
+def hardest_to_assign_val(Gate):
+	global setting_all_ip
+	if(Gate=='and'):
+		setting_all_ip		='1'		#Non_control_val
+	elif(Gate=='or'):
+		setting_all_ip		='0'
+	elif(Gate=='nand'):
+		setting_all_ip		='0'		
+	elif(Gate=='nor'):
+		setting_all_ip		='1'
+	
 
+
+def max_min_Controllability(l,node1,val_assign):
+		max_cc0_controllability	=0
+		edge_max_cc0_controllability =''
+		min_cc0_controllability	=10000 
+		edge_min_cc0_controllability =''
+		
+		max_cc1_controllability	=0
+		edge_max_cc1_controllability =''
+		min_cc1_controllability	=10000 
+		edge_min_cc1_controllability =''
+		if(G.nodes[node1]['type']=='gate'):
+			print "G.nodes[node1]['gatetype']",node1
+			print "val_assign",val_assign
+			for i in l:
+				if(G.edges[i]['value_non_fault']=='x'):
+					if(max_cc0_controllability < G.edges[i]['cc0']):
+						max_cc0_controllability 	=G.edges[i]['cc0']
+						edge_max_cc0_controllability =i
+					if(min_cc0_controllability > G.edges[i]['cc0']):
+						min_cc0_controllability	=G.edges[i]['cc0']
+						edge_min_cc0_controllability =i
 						
+					if(max_cc1_controllability < G.edges[i]['cc1']):
+						max_cc1_controllability 	=G.edges[i]['cc1']
+						edge_max_cc1_controllability =i
+					if(min_cc1_controllability > G.edges[i]['cc1']):
+						min_cc1_controllability	=G.edges[i]['cc1']
+						edge_min_cc1_controllability =i
+			
+			#~ print "edge_max_cc0_controllability",edge_max_cc0_controllability
+			#~ print "edge_min_cc0_controllability",edge_min_cc0_controllability
+			#~ print  "edge_max_cc1_controllability",edge_max_cc1_controllability
+			#~ print "edge_min_cc1_controllability",edge_min_cc1_controllability
+			
+			hardest_ip = hardest_to_assign_val(G.nodes[node1]['gatetype'])
+			print "G.nodes[node1]['gatetype']",G.nodes[node1]['gatetype']
+			
+			if(G.nodes[node1]['gatetype']=='and' or G.nodes[node1]['gatetype']=='nand'):
+				if(val_assign ==hardest_ip):
+					edge =edge_max_cc1_controllability
+				else:
+					edge =edge_min_cc0_controllability
+			if(G.nodes[node1]['gatetype']=='or' or G.nodes[node1]['gatetype']=='nor'):
+				if(val_assign ==hardest_ip):
+					edge =edge_max_cc0_controllability
+				else:
+					edge =edge_min_cc1_controllability
+					
+			if(G.nodes[node1]['gatetype']=='xor' or G.nodes[node1]['gatetype']=='xnor' ):
+				if(val_assign =='1'):
+					edge =edge_max_cc1_controllability
+				else:
+					edge =edge_max_cc0_controllability
+					
+			
+			
+			if(G.nodes[node1]['gatetype']=='not'):
+					edge =l[0]
+			
+			
+			return edge	
+				
+				
 def Backtrace(node1,node2):
 		global G
 		backtrack=0
 		while(G.nodes[node1]['type']=='gate' or  G.nodes[node1]['type']=='fanout'):
 			l= list (G.in_edges(nbunch=node1, data=False))
-			print "node1",node1
+			print "node1,node2",node1 ,node2
 			print "Before Backtrace",print_Backtrace_Graph_edges(l)
 			
-			for i in l:
-				
-				if(G.nodes[node1]['type']=='gate'and G.edges[i]['value_non_fault']=='x'):										#For all the gates
+			if(G.nodes[node1]['type']=='gate'):
+					edge_to_assign =max_min_Controllability(l,node1,G[node1][node2]['value_non_fault']	)
+					print "edge_to_assign",edge_to_assign
+			
+
 					if(G.nodes[node1]['gatetype']=='nand' or G.nodes[node1]['gatetype']=='nor' or G.nodes[node1]['gatetype']=='not'):
-						G.edges[i]['value_non_fault'] = str(int(not(int(G[node1][node2]['value_non_fault']))))				# Inversion parity =1
+						G.edges[edge_to_assign]['value_non_fault'] = str(int(not(int(G[node1][node2]['value_non_fault']))))				# Inversion parity =1
 						
 					else:
-						G.edges[i]['value_non_fault'] = 	G[node1][node2]['value_non_fault']						#  Inversion parity =0
-					backtrack=assign_faulty(i)																	#Assigning value to a non -faulty circuit 		
+						G.edges[edge_to_assign]['value_non_fault'] 	= 	G[node1][node2]['value_non_fault']						#  Inversion parity =0
+
+
+
+					backtrack=assign_faulty(edge_to_assign)																	#Assigning value to a non -faulty circuit 		
 					print "After Backtrace",print_Backtrace_Graph_edges(l)
-					node1 	=i[0]
-					node2 	=i[1]
+					#~ node1 	=i[0]
+					#~ node2 	=i[1]
 					
-					break
+					new_node1		=edge_to_assign[0]
+					new_node2		=edge_to_assign[1]
+					print "node1,node2"	,new_node1,new_node2
 					
-																			
-				elif(G.nodes[node1]['type']=='fanout'):											# For fanout branches
-					G.edges[i]['value_non_fault'] = G[node1][node2]['value_non_fault']	
-					backtrack=assign_faulty(i)		#Assigning value to a non -faulty circuit 		
-					print "After Backtrace",print_Backtrace_Graph_edges(l)
-					node1 	=i[0]
-					node2 	=i[1]	
+					
+																		
+			if(G.nodes[node1]['type']=='fanout'):	
+					for i in l:											# For fanout branches
+						G.edges[i]['value_non_fault'] = G[node1][node2]['value_non_fault']	
+						backtrack=assign_faulty(i)		#Assigning value to a non -faulty circuit 		
+						print "After Backtrace",print_Backtrace_Graph_edges(l)
+						new_node1 	=i[0]
+						new_node2 	=i[1]	
+						print "node1,node2"	,new_node1,new_node2
 					
 			
+			
+			node1 =new_node1
+			node2 =new_node2
 			if(backtrack ==True):
 				#print backtrack
 				break
@@ -295,7 +382,7 @@ def print_Graph_edges():
 	print "faulty_edge_list",faulty_edge_list
 	for item in G.edges(data=True):
 				#if(item[0]=='G1' or item[0]=='G2' or item[0]=='G3' or item[0]=='G4' or item[0]=='G5'):
-					print item[0],item[2]['value_non_fault'] ,item[2]['value_faulty']
+					print item[0],item[1],item[2]['value_non_fault'] ,item[2]['value_faulty']
 				#	output +=str(item[0])+" " + str(item[1])+" " + str(item[2]['value_non_fault'])+" " +str(item[2]['value_faulty']) +"\n" 
 	
 	#~ output += "\n" 
@@ -309,23 +396,72 @@ def error_at_PO():
 			if(G.edges[i]['value_non_fault']!='x' and G.edges[i]['value_faulty']!='x' and G.edges[i]['value_non_fault']!=G.edges[i]['value_faulty'] ):
 				return True
 		return False 
-def test_not_possible_with_this_val():
-		global G
-		for i in PO_list:
-			if(G.edges[i]['value_non_fault']==G.edges[i]['value_faulty'] and G.edges[i]['value_non_fault']!='x' and G.edges[i]['value_faulty']!='x' and
-			all_PI_assigned()==True):
+#~ def test_not_possible_with_this_val():
+		#~ global G
+		#~ for i in PO_list:
+			#~ if(G.edges[i]['value_non_fault']==G.edges[i]['value_faulty'] and G.edges[i]['value_non_fault']!='x' and G.edges[i]['value_faulty']!='x' and
+			#~ all_PI_assigned()==True):
+				#~ return True
+		#~ return False
+			#~ 
+#~ def all_PI_assigned():
+	#~ global G
+	#~ for i in PI_list:
+		#~ if(G.edges[i]['value_non_fault']=='x'):
+			#~ return False
+	#~ 
+	#~ return True
+	
+#--------------------------------------------X_path_check-----------------------------------------------------------------------------	
+def X_path(faulty_edge_list,PO_list):
+	print "PO_list",PO_list
+	print "faulty_edge_list",faulty_edge_list
+		
+	for i in PO_list:
+			if (X_check_path(faulty_edge_list[1],i[1])==True):
 				return True
-		return False
+				
+				
+	return False
+	
+	
+def X_create_edge(path):		
+		print path
+		edge_list=[]
+		if(len(path)>0):
+			for i in range(len(path)):
+				if(i>0):
+					edge_list.append((path[i-1],path[i]))
+			print "edges",edge_list
+		return edge_list
+		
 			
-def all_PI_assigned():
-	global G
-	for i in PI_list:
-		if(G.edges[i]['value_non_fault']=='x'):
-			return False
+def X_check_path(Source,Destination):
+	flag =0
 	
-	return True
-
+	for path in nx.all_simple_paths(G, source=Source, target=Destination):
+		edges = X_create_edge(path)
 	
+		if(len(edges)!=0):
+			for i in edges:
+					print "i",i
+					if((G.edges[i]['value_non_fault']=='x' or G.edges[i]['value_faulty']=='x') or  #X
+					   (G.edges[i]['value_non_fault']=='1' and G.edges[i]['value_faulty']=='0')or	#D
+					   (G.edges[i]['value_non_fault']=='0' and G.edges[i]['value_faulty']=='1')):	#D_bar
+					
+						flag=1
+					else: 
+						flag =0
+						break
+	
+	if(flag==1):
+		print Source,Destination
+		return True
+	else:
+		print Source,Destination
+		return False
+#-----------------------------------------------------------------------------------------------------------------------------------------
+		
 def atpg_PODEM():
 		global G
 		global I_Stack
@@ -333,17 +469,20 @@ def atpg_PODEM():
 		#print G.edges[PO_list[1]]['value_non_fault'],G.edges[PO_list[1]]['value_faulty']
 		if(error_at_PO()==True):
 			return True
-		print "test_not_possible_with_this_val()",test_not_possible_with_this_val()
-		if(test_not_possible_with_this_val()==True):
-			return False	
-		#while (G.edges[PO_list[0]]['value_non_fault']=='x' ):
-			#print "faulty_edge_list",faulty_edge_list
+		
+		#~ if(test_not_possible_with_this_val()==True):
+			#~ return False	
+		if(X_path(faulty_edge_list,PO_list)==False):
+			print "X_path False"
+			return False
+		else:
+			print "X_path True"
 		print "**********************Objective ********************"
 		[node1,node2]=Objective()
-		print "node1 node2",node1, node2
+		#print "node1 node2",node1, node2
 		print "**********************Backtrace ********************"
 		[node1,node2,value,backtrack]	  =Backtrace(node1,node2)
-		print "Backtrace node",node1 ,node2,value,backtrack
+		#print "Backtrace node",node1 ,node2,value,backtrack
 		if(backtrack==0):
 			I_Stack.push((node1, node2),value)
 		print "I_Stack.peek()",I_Stack.display_stack()
@@ -399,7 +538,7 @@ def faulty_edg():
 	return [faulty_node1,faulty_node2,stuck_at]
 
 
-
+Contollability_circuit()
 faulty_edge_list=faulty_edg()
 PI_list  = primary_input()
 PO_list  = primary_output()
@@ -408,11 +547,7 @@ PO_list  = primary_output()
 D_fronteir_list =[]
 
 I_Stack=IS.Impl_Stack()
+print_Graph_edges_Contollabilty()	
 atpg_PODEM()
-#print_Graph_edges()	
 
 
-
-plt.savefig("check_Graph.png")
-plt.ion()
-plt.show()

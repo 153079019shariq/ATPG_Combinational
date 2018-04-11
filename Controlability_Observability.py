@@ -2,9 +2,9 @@ from Graph_Controlability_Observability import G
 import Gates
 import networkx as nx
 from collections import OrderedDict
-
+import operator
 		
-def print_Graph_edges():
+def print_Graph_edges_Contollabilty():
 	global G	
 	for item in G.edges(data=True):
 			print item[0],item[1], item[2]['cc0'],item[2]['cc1'],item[2]['co']
@@ -14,13 +14,16 @@ def controlabilty(node):
 	global G
 	list_predecessorCC0 =[]
 	list_predecessorCC1 =[]
-	if(G.nodes[node]['type']!='input'):
+	
+	if(G.nodes[node]['type']=='gate' or G.nodes[node]['type']=='fanout' or  G.nodes[node]['type']=='FF'):
 		
 		for predecessor in  list(G.in_edges(nbunch=node, data=False)):
-			list_predecessorCC0.append(G.edges[predecessor]['cc0'])
+			list_predecessorCC0.append(G.edges[predecessor]['cc0'])					#Multiple inedge
 			list_predecessorCC1.append(G.edges[predecessor]['cc1'])
+		
 		if(G.nodes[node]['type']=='gate'):
-				i= list(G.out_edges(nbunch=node, data=False))[0]
+				
+				i= list(G.out_edges(nbunch=node, data=False))[0]					#One outedge as output of Gate is one
 				if(G.nodes[node]['gatetype']=='and'):
 					G.edges[i]['cc0'],G.edges[i]['cc1']= Gates.AND_Control(list_predecessorCC0,list_predecessorCC1)
 				elif(G.nodes[node]['gatetype']=='or'):
@@ -35,64 +38,101 @@ def controlabilty(node):
 					G.edges[i]['cc0'],G.edges[i]['cc1']= Gates.XNOR_Control(list_predecessorCC0,list_predecessorCC1)
 				elif(G.nodes[node]['gatetype']=='not'):
 					G.edges[i]['cc0'],G.edges[i]['cc1']= Gates.NOT_Control(list_predecessorCC0,list_predecessorCC1)
+				#print "G.edges[i]['cc0'],G.edges[i]['cc1']",G.edges[i]['cc0'],G.edges[i]['cc1']
 		
 		elif(G.nodes[node]['type']=='fanout'):
 				for i in  list(G.out_edges(nbunch=node, data=False)):
-					G.edges[i]['cc0'],G.edges[i]['cc1']= list_predecessorCC0[0],list_predecessorCC1[0]
+					G.edges[i]['cc0'],G.edges[i]['cc1']= list_predecessorCC0[0],list_predecessorCC1[0] #Multiple outedge
+				#print "G.edges[i]['cc0'],G.edges[i]['cc1']",G.edges[i]['cc0'],G.edges[i]['cc1']
+				
+		elif(G.nodes[node]['type']=='FF'):
+				for i in  list(G.out_edges(nbunch=node, data=False)):
+					G.edges[i]['cc0'],G.edges[i]['cc1']= list_predecessorCC0[0]+1,list_predecessorCC1[0]+1	#One outedge
+				#print "G.edges[i]['cc0'],G.edges[i]['cc1']",G.edges[i]['cc0'],G.edges[i]['cc1']
 					
 		#print_Graph_edges()
 		
-def observabiltiy(node):
-		global G
-		#Predeccesor are the input of the gate and node is the gate itself.	
-		if(G.nodes[node]['type']=='gate'):		
-				print "%%%%%%%%%%%%%%%%%%%%%%%%%%Gate Observability%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-				#print "node in gate",node
-				list_predecessorCC0 =[]
-				list_predecessorCC1 =[]
-				for predecessor in  list(G.in_edges(nbunch=node, data=False)):
-						list_predecessorCC0.append(G.edges[predecessor]['cc0'])
-						list_predecessorCC1.append(G.edges[predecessor]['cc1'])
-						
-				edgeCO= list(G.out_edges(nbunch=node, data=True))[0][2]['co']
-				
-				list_predecessorCO =[]
 
-				if(G.nodes[node]['gatetype']=='and' or G.nodes[node]['gatetype']=='nand'):
-					list_predecessorCO = Gates.AND_NAND_Obser(list_predecessorCC1,edgeCO)
-					
-				elif(G.nodes[node]['gatetype']=='or' or G.nodes[node]['gatetype']=='nor'):
-					list_predecessorCO = Gates.AND_NAND_Obser(list_predecessorCC0,edgeCO)
-					
-				elif(G.nodes[node]['gatetype']=='xor' or G.nodes[node]['gatetype']=='xnor'):
-					list_predecessorCO = Gates.XOR_XNOR_Obser(list_predecessorCC1,list_predecessorCC0,edgeCO)
-					
-				elif(G.nodes[node]['gatetype']=='not'):
-					list_predecessorCO = Gates.NOT_Obser(edgeCO)
-				count =0	
-				for predecessor in  list(G.in_edges(nbunch=node, data=False)):
-					G.edges[predecessor]['co'] = list_predecessorCO[count]
-					#print "G.nodes[predecessor]['co']",G.edges[predecessor]['co']
-					count +=1
-				#print_Graph_edges()
-		#Node is fanout itself and branches of it are successor.		
-		elif(G.nodes[node]['type']=='fanout'):
-				print "$$$$$$$$$$$$$$$$$$$$$$$Fanout Observability$$$$$$$$$$$$$$$$$$$$$$$$"
-				edge =list(G.in_edges(nbunch=node, data=False))[0]
-				list_successor =[]
-				for successor in list(G.out_edges(nbunch=node, data=False)):
-					list_successor.append(G.edges[successor]['co'])
-				G.edges[edge]['co']  =min(list_successor)
-				
 
-					
-lis =['A','B','C','fanout1','fanout2','1','2','3','4','fanout3','5','6','Y','Z']	
-#1st controlabiliy should be calculated then observability.The controlability is calculated from PI to PO.And the observability is calculated from PO to PI.
-for node in lis:	
+
+
+#-----------------------------------------------Levelization of the Graph-------------------------------------------------------------------------
+
+
+
+def assign(lis,dic):
+	flag=0
+	for k in lis:
+			  	if(k in dic.keys()):
+					continue
+				else:
+					flag=1
+					break
+	return flag
+
+def maxi(lis,dic):
+	maxim=0
+	for i in lis:
+		if(maxim <dic[i]):
+			maxim =dic[i]
+	return maxim
+
+
+
+
+
+def Level (Graph):
+	global dic_level
+	dic_level={}
+	#print Graph.nodes(data=True)
+	for item in Graph.nodes():
+		
+		
+		if(Graph.nodes[item]['type']=='input' ):
+			dic_level[item]=1
+	#print "Length of Graph",len(Graph)
+	while (len(dic_level)<len(Graph)):	
+		for item in Graph.nodes():
+			if(Graph.nodes[item]['type']=='fanout' or Graph.nodes[item]['type']=='FF'):
+				list_inedge =list(Graph.in_edges(nbunch=item, data=False))
+				if(list_inedge[0][0] in dic_level.keys()):	
+					dic_level[item]=dic_level[list_inedge[0][0]]+1
+			elif(Graph.nodes[item]['type']=='output'):
+				list_inedge =list(Graph.in_edges(nbunch=item, data=False))
+				if(list_inedge[0][0] in dic_level.keys()):	
+					dic_level[item]=dic_level[list_inedge[0][0]]
+				
+			elif(Graph.nodes[item]['type']=='gate'):
+				list_inedge =list(Graph.in_edges(nbunch=item, data=False))	
+				lis=[]
+				lis =[i[0] for i in list_inedge]
+				if(assign(lis,dic_level) ==0):
+					dic_level[item] =maxi(lis,dic_level)+1
+				else:
+					continue
+				#dic_level[item]=maxi
+	return dic_level
+#---------------------------------------------------------------------------------------------------------------------------------------	
+
+bfs= Level (G)
+print bfs
+sorted_x = sorted(bfs.items(), key=operator.itemgetter(1))
+
+list1=[]
+def lis(sorted_x):
+	global list1
+	
+	for i in sorted_x:
+		list1.append(i[0])
+	
+		
+lis(sorted_x)
+#--------------------------------------------------------------------------------------------------------------------------------------------
+
+def Contollability_circuit():
+	for node in list1:	
 		controlabilty(node)
 
-for node in reversed(lis):	
-		observabiltiy(node)
-print "Result"
-print_Graph_edges()
-print list(G.out_edges(nbunch='fanout3', data=False))[0]
+
+print_Graph_edges_Contollabilty()
+
