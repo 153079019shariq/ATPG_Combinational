@@ -1,15 +1,16 @@
 import sys
 faulty_edge_list =[sys.argv[1],sys.argv[2],sys.argv[3]]
-#faulty_edge_list =['fanout3','G17','sa0']
+#faulty_edge_list =['fanout3' ,'G17' ,'sa1']
 input_list =[]
 output_list=[]
 wire_list =[]
 nodes_list =[]
 edges_list =[]
 
-fanout1_list =[]
+
 output_of_gates =[]
-input1_of_gates =[]
+input_of_gates =[]
+input_of_gates =[]
 input2_of_gates =[]
 
 dic_gate_types ={}
@@ -24,44 +25,107 @@ with open ('c17.v','r') as f:
 			input_list=list1[1].split(',')
 		if(list1[0]=='output'):
 			output_list=list1[1].split(',')
-		if(list1[0]=='assign'):
-			edges_list.append((list1[3],list1[1]))
-			if(list1[1] in wire_list):
-				fanout1_list.append(list1[1])
-		
 		if(list1[0]=='nand' or list1[0]=='nor' or list1[0]=='or' or list1[0]=='and' or list1[0]=='not'):
-			list2 = list1[2].split(',')
-			output_of_gates.append(list2[0].lstrip('('))
-			input1_of_gates.append(list2[1])
-			input2_of_gates.append(list2[2].rstrip(')'))
-			dic_gate_types[list2[0].lstrip('(')]=list1[0]
+			list2 = list1[3].split(',')
+			output_of_gates.append(list2[0])
+			input_of_gates.append(list2[1:])
+			dic_gate_types[list2[0]]=list1[0]
+
+			
 		
 		
+
+#fanout_list------------------------------
+fanout1_dic ={}
+output_dic	={}
+fanout2_list =[]
+temp_list=[]
+print "input_of_gates",input_of_gates
+temp_list =[j for i in input_of_gates for j in i]
+
+for i in temp_list:
+	if (temp_list.count(i)>1 and (i not in fanout2_list)):
+		fanout2_list.append(i)
+print "fanout2_list",fanout2_list
+
+for i in range(len(fanout2_list)):
+	check	= "fanout" + str(i+1)
+	fanout1_dic[fanout2_list[i]]=check
+print "fanout1_dic",fanout1_dic
+
+#Output_list-------------------------------------
+for i in range(len(output_list)):
+	check2	= "output" + str(i+1)
+	output_dic[output_list[i]]=check2
+print "output_dic",output_dic
+
 
 print "dic_gate_types",dic_gate_types
 print type(dic_gate_types[output_of_gates[0]])
-nodes_list =	input_list	+	output_of_gates + fanout1_list +	output_list 
+nodes_list =	input_list	+	output_of_gates + output_dic.values() +fanout1_dic.values() 
+
+print "input_of_gates",input_of_gates
+
+
+
+#---Insert the fanout node in input1_of_g
+#lis[lis.index('one')] = 'replaced!'
+for i in input_of_gates:
+	for j in i:
+		if(j in fanout1_dic.keys()):
+			print j
+			input_of_gates[input_of_gates.index(i)][i.index(j)]=fanout1_dic[j]
+
+print "input_of_gates",input_of_gates
+
+
+
+#------------------------------------------
+for key, value in fanout1_dic.iteritems():
+	 edges_list.append((key,value))
+	 print "(fanout1_dic.keys(),fanout1_dic.values())",type((key,value))
+
+for key, value in output_dic.iteritems():
+	 edges_list.append((key,value))
+	 print "output",(key,value)
 
 
 for i in range(len(output_of_gates)):
-	edges_list.append((input2_of_gates[i],output_of_gates[i]))
+	for j in range(len(input_of_gates[i])):
+		print "input_of_gates[i][j],output_of_gates[i]",input_of_gates[i][j],output_of_gates[i]
+		edges_list.append((input_of_gates[i][j],output_of_gates[i]))
 
-for i in range(len(output_of_gates)):
-	edges_list.append((input1_of_gates[i],output_of_gates[i]))
+print "edges_list",edges_list
+
+
 
 		
+#--------------------------------Contorllability 1 for Primary input -------------------------------------------
+list_ip_SCOAP =[]
+for ip in input_list:
+	
+	for i in edges_list:
+		if (ip == i[0]):
+				print ip
+				print i[0]
+				list_ip_SCOAP.append(i)
+print "list_ip_SCOAP",list_ip_SCOAP
+
+
+
+#------------------------------------------------------------------------------------------------------------------		
 
 print "input_list",input_list
-print "fanout1_list",fanout1_list
+print "fanout1_dic",fanout1_dic
 print "output_of_gates",output_of_gates
 print "output_list",output_list
 
-print "wire_list",wire_list
+#print "wire_list",wire_list
 
 print "**************************************"
 
-print "nodes_list",nodes_list
-print "edges_list",edges_list 
+#print "nodes_list",nodes_list
+#print "edges_list",edges_list 
 
 #*****************************Constructing a graph*************************************************************************
 output = """import networkx as nx 
@@ -75,16 +139,20 @@ add_faulty_edges	="G.add_edge" +"(" + "\'"+ faulty_edge_list[0] + "\'" + "," + "
 print "add_f",add_faulty_edges
 
 for  i in nodes_list:
+	
 	if(i in input_list):
 		add_node  += "G.add_node" +"(" + "\'"+ i + "\'"+ "," + "type" + "=" + "\'"+ "input" + "\'" + ")" + "\n"
-	if(i in fanout1_list):
+	if(i in fanout1_dic.values()):
 		add_node  += "G.add_node" +"(" + "\'"+ i + "\'"+ "," + "type" + "=" + "\'" + "fanout" + "\'" + ")" + "\n"
 	if(i in output_of_gates):
 		add_node  += "G.add_node" +"(" + "\'"+ i + "\'"+ "," + "type" + "=" + "\'" + "gate" + "\'" + ","+"gatetype" + "=" + "\'" + dic_gate_types[i] + "\'" + ")" + "\n"
-	if(i in output_list):
+	if(i in output_dic.values()):
 		add_node  += "G.add_node" +"(" + "\'"+ i + "\'"+ "," + "type" + "=" + "\'" + "output" + "\'" + ")" + "\n"
 	
 print add_node 
+
+
+
 
 for i in range(len(edges_list)):
 	if(i==len(edges_list)-1):
@@ -93,10 +161,22 @@ for i in range(len(edges_list)):
 		add_edges_from += str(edges_list[i])+","
 	
 	
-add_edges_from	+= "], value_non_fault='x',value_faulty='x', fault='')" 
+add_edges_from	+= "], value_non_fault='x',value_faulty='x', fault='',cc0=0,cc1=0)" 
 #print add_edges_from
 
-output += add_node + add_edges_from  + "\n" + add_faulty_edges
+#--------------------------------Contorllability 1 for Primary input -------------------------------------------
+print "list_ip_SCOAP",list_ip_SCOAP
+add_ip_SCOAP =''
+for i in list_ip_SCOAP:
+	add_ip_SCOAP	+="G.add_edge" +"(" + "\'"+ i[0] + "\'" + "," + "\'"+ i[1] + "\'" + ", value_non_fault='x',value_faulty='x', fault='',cc0=1,cc1=1)" + "\n"
+print "add_ip_SCOAP",add_ip_SCOAP
+
+
+
+
+
+output += add_node + add_edges_from  + "\n" + add_ip_SCOAP  +  "\n" + "\n" +  add_faulty_edges+ "\n"
+
 
 #print output 
 f = open("Graph_build.py", 'w')

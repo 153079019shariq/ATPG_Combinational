@@ -3,7 +3,7 @@
 import networkx as nx
 import Gates
 #from Graph_Controlability_Observability import G   Prob 7.3 Figure 7.39
-from Graph_Figure_7_24 import G
+from Graph_build import G
 import Implication_Stack as IS
 from  Controlability_Observability import *
 def primary_input():
@@ -369,17 +369,17 @@ def print_Backtrace_Graph_edges(l):
 		
 def print_Graph_edges():
 	global G	
-	#output =str(faulty_edge_list) +"\n"
+	output =str(faulty_edge_list) +"\n"
 	print "faulty_edge_list",faulty_edge_list
 	for item in G.edges(data=True):
-				#if(item[0]=='G1' or item[0]=='G2' or item[0]=='G3' or item[0]=='G4' or item[0]=='G5'):
+				if(G.nodes[item[1]]['type']=='output' or G.nodes[item[0]]['type']=='input'):
 					print item[0],item[1],item[2]['value_non_fault'] ,item[2]['value_faulty']
-				#	output +=str(item[0])+" " + str(item[1])+" " + str(item[2]['value_non_fault'])+" " +str(item[2]['value_faulty']) +"\n" 
+					output +=str(item[0])+" " + str(item[1])+" " + str(item[2]['value_non_fault'])+" " +str(item[2]['value_faulty']) +"\n" 
 	
-	#~ output += "\n" 
-	#~ f = open("ATPG_output.txt", 'a+')
-	#~ f.write(output)
-	#~ f.close()
+	output += "\n" 
+	f = open("ATPG_output.txt", 'a+')
+	f.write(output)
+	f.close()
 	
 def error_at_PO():
 		global G
@@ -481,7 +481,7 @@ def atpg_PODEM():
 		print "**********************Forward Implication 1st********************"
 		Forward_Implication(node1,node2)
 		print "**************************************************************"
-		print_Graph_edges()	
+		#print_Graph_edges()	
 		print "One turn over try another"
 		if(atpg_PODEM()==True):
 			return True
@@ -490,7 +490,7 @@ def atpg_PODEM():
 		[edges,val]=I_Stack.peek()
 		G.edges[edges]['value_non_fault']=val
 		G.edges[edges]['value_faulty']=val
-		print_Graph_edges()	
+		#print_Graph_edges()	
 		print "**********************Forward Implication 2nd********************"
 		Forward_Implication(node1,node2)
 		if(atpg_PODEM()==True):
@@ -502,7 +502,7 @@ def atpg_PODEM():
 			[edges,val]=I_Stack.peek()
 			G.edges[edges]['value_non_fault']=val
 			G.edges[edges]['value_faulty']=val
-			print_Graph_edges()	
+			#print_Graph_edges()	
 			return False
 		#~ #print_Graph_edges()		
 			
@@ -516,7 +516,7 @@ def atpg_PODEM():
 #Finding the Faulty edges
 def faulty_edg():								
 	for item in G.edges(data=True):
-				
+
 		if(item[2]['fault']=='sa1' ):
 				stuck_at 		='sa1'
 				faulty_node1 	=item[0]
@@ -540,5 +540,5 @@ D_fronteir_list =[]
 I_Stack=IS.Impl_Stack()
 print_Graph_edges_Contollabilty()	
 atpg_PODEM()
-
+print_Graph_edges()	
 

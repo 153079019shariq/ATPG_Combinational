@@ -1,4 +1,4 @@
-from  Graph_Figure_7_24 import G 
+from  Graph_build import G 
 import Gates
 import networkx as nx
 from collections import OrderedDict
@@ -7,15 +7,23 @@ import operator
 def print_Graph_edges_Contollabilty():
 	global G	
 	for item in G.edges(data=True):
-			print item[0],item[1], item[2]['cc0'],item[2]['cc1'],item[2]['co']
+			print item[0],item[1], item[2]['cc0'],item[2]['cc1']
+			
+def print_Graph_nodes_Contollabilty():
+	global G	
+	for item in G.nodes(data=True):
+			print item
 					
 
+
+#~ 
 def controlabilty(node):
 	global G
 	list_predecessorCC0 =[]
 	list_predecessorCC1 =[]
 	
 	if(G.nodes[node]['type']=='gate' or G.nodes[node]['type']=='fanout' or  G.nodes[node]['type']=='FF'):
+		
 		
 		for predecessor in  list(G.in_edges(nbunch=node, data=False)):
 			list_predecessorCC0.append(G.edges[predecessor]['cc0'])					#Multiple inedge
@@ -51,7 +59,7 @@ def controlabilty(node):
 				#print "G.edges[i]['cc0'],G.edges[i]['cc1']",G.edges[i]['cc0'],G.edges[i]['cc1']
 					
 		#print_Graph_edges()
-		
+		#~ 
 
 
 
@@ -127,12 +135,13 @@ def lis(sorted_x):
 	
 		
 lis(sorted_x)
+
 #--------------------------------------------------------------------------------------------------------------------------------------------
 
 def Contollability_circuit():
 	for node in list1:	
 		controlabilty(node)
-
-
+Contollability_circuit()
 print_Graph_edges_Contollabilty()
+
 
